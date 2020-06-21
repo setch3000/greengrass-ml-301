@@ -323,25 +323,11 @@ Resources:
                 - |
                   cd /tmp/
                 - >
-                  #wget
-                  http://aws-workshops-1589389556.eu-west-1.elb.amazonaws.com/workshop-cfn/src/greengrass-ml-sagemaker.tgz
-                - >
                   wget
-                  https://public-cloudformation.s3.ap-northeast-2.amazonaws.com/public-iot-workshop/public-iot-ml.tar.gz
+                  https://public-cloudformation.s3.ap-northeast-2.amazonaws.com/greengrass-ml-301/greengrass-ml-301.tar.gz
                 - >
-                  tar zxvf public-iot-ml.tar.gz -C
+                  tar zxvf greengrass-ml-301.tar.gz -C
                   /home/ec2-user/SageMaker/Greengrass-ML/
-                - |+
-
-                - >
-                  mv
-                  /home/ec2-user/SageMaker/Greengrass-ML/greengrass-ml_mxnet_cifar10_with_gluon_local.ipynb
-                  /tmp/
-                - >
-                  sed -e "s/XXXS3BUCKETXXX/$S3_BUCKET/" -e
-                  "s/XXXREGIONXXX/$REGION/"
-                  greengrass-ml_mxnet_cifar10_with_gluon_local.ipynb >
-                  /home/ec2-user/SageMaker/Greengrass-ML/greengrass-ml_mxnet_cifar10_with_gluon_local.ipynb
                 - |+
 
                 - |+
