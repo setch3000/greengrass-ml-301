@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="description" content="AWS Greengrass Workshop">
+<meta name="author" content="Albert Lee">
+
+    <link rel="icon" href="/greengrass301/images/favicon.png" type="image/png">
+
+    <title>실습4. greengrass Core software 설치 및 로깅 활성화 (25분) :: AWS Greengrass Workshop</title>
+
+    
+    <link href="/greengrass301/css/nucleus.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/fontawesome-all.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/hybrid.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/featherlight.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/perfect-scrollbar.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/auto-complete.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/atom-one-dark-reasonable.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/theme.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/hugo-theme.css?1579528042" rel="stylesheet">
+    
+      <link href="/greengrass301/css/theme-aws.css?1579528042" rel="stylesheet">
+    
+
+    <script src="/greengrass301/js/jquery-3.3.1.min.js?1579528042"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/greengrass301/lab3/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/greengrass301/index.html">
+	<img src="/greengrass301/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/greengrass301/js/lunr.min.js?1579528042"></script>
+<script type="text/javascript" src="/greengrass301/js/auto-complete.js?1579528042"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/greengrass301\/";
+    
+</script>
+<script type="text/javascript" src="/greengrass301/js/search.js?1579528042"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/intro/index.html">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab0/" title="Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab0/index.html">
+          <b>1. </b>Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab1/" title="실습 2. Amazon SageMaker를 활용한 ML model Training (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab1/index.html">
+          <b>2. </b>실습 2. Amazon SageMaker를 활용한 ML model Training (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab2/" title="실습3. Greengrass Group 생성 및 초기 설정 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab2/index.html">
+          <b>3. </b>실습3. Greengrass Group 생성 및 초기 설정 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab3/" title="실습4. greengrass Core software 설치 및 로깅 활성화 (25분)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/greengrass301/lab3/index.html">
+          <b>4. </b>실습4. greengrass Core software 설치 및 로깅 활성화 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab4/" title="실습5. ML-Inference Lambda 생성 및 image 분류(25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab4/index.html">
+          <b>5. </b>실습5. ML-Inference Lambda 생성 및 image 분류(25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/greengrass301/credits/index.html"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/greengrass301/'>홈</a> > 실습4. greengrass Core software 설치 및 로깅 활성화 (25분)
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습4. greengrass Core software 설치 및 로깅 활성화 (25분)
+            </h1>
+          
+
+        
+
+
+
+
+	<h4 id="updating-greengrass-core-software">Updating greengrass Core software</h4>
+<p>Cloud9(EC2)에 이미 이전 버전의 greengrass core software가 설치되어 있습니다만, 이것을 최신 버전으로 업그레이드애 해야 됩니다.</p>
+<p>먼저, 이전 버전의 greengrass core software를 삭제합니다.</p>
+<p><code>sudo rm -rf /greengrass</code></p>
+<p>그리고, 최신 버전의 greengrass core software를 다운로드하고, 루트(/)에 압축 해제 합니다.</p>
+<pre><code>wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.0/greengrass-linux-x86-64-1.10.0.tar.gz
+sudo tar -xzvf greengrass-linux-x86-64-1.10.0.tar.gz -C /
+</code></pre><h4 id="java-8-runtime-jdk-8-">Java 8 runtime (JDK 8) 설치</h4>
+<p>Cloud9(EC2)에 이미 이전 버전의 JDK가 이미 설치되어 있습니다만, 이것을 JDK 8 이상으로 업그레이드해야 합니다.
+Cloud9 terminal에서 아래와 같은 명령으로 이전 버전의 JDK를 삭제하고, JDK 8을 설치합니다.</p>
+<pre><code>sudo yum remove java-1.7.0-openjdk
+sudo yum install java-1.8.0
+</code></pre><p>Cloud9 terminal에서 다음 명령으로 JDK 버전이 1.8.0 이상인지 확인합니다.</p>
+<p><code>java -version</code></p>
+<h4 id="copy-and-unpack-the-targz-file">Copy and unpack the tar.gz-file</h4>
+<p>다운로드 한 tar.gz 파일을 EC2 인스턴스에 복사 (Lab1의 마지막 부분에서 언급 한대로 S3 / Cloud9 IDE 사용)하십시오. tar.gz 파일의 이름은 -setup.tar.gz와 유사합니다.
+tar.gz 파일에는 Greengrass Core를 구성하는 데 사용될 키, 인증서 및 구성 파일 (config.json)이 포함되어 있습니다.</p>
+<p><img src="./images/c9_1.png" alt="c9_1"></p>
+<p>Cloud9 터미널에서 아래와 같은 명령으로 압축을 해제합니다.</p>
+<pre><code>sudo tar zxvf &lt;unique-string&gt;-setup.tar.gz -C /greengrass/
+</code></pre><p><img src="./images/c9_2.png" alt="c9_2"></p>
+<h4 id="ats--ca--">ATS 루트 CA 인증서를 다운로드</h4>
+<p>ATS 앤드포인트에 접근하기 위하여 ATS 루트 CA 인증서를 다운로드합니다.</p>
+<pre><code>cd /greengrass/certs/ 
+sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
+</code></pre><h4 id="greengrass-core-">Greengrass Core 시작</h4>
+<p>이제 Greengrass Core를 시작할 준비가되었습니다.</p>
+<p>Greengrass Core를 시작하기 전에 <a href="https://console.aws.amazon.com/iot/">AWS IoT Core console</a>로 이동한 후 Test 메뉴를 이용하여, <em><strong>$aws/events/#</strong></em> 와 <em><strong>$aws/things/#</strong></em> 토픽을 구독 신청합니다.</p>
+<p><img src="./images/c9_3.png" alt="c9_3"></p>
+<p>Cloud9 terminal에서 아래 명령을 실행합니다.</p>
+<pre><code>cd /greengrass/ggc/core
+sudo ./greengrassd start
+</code></pre><p>그리고, 다시 AWS IoT Core 콘솔에서 MQTT client의 출력을 확인합니다.</p>
+<p><img src="./images/c9_4.png" alt="c9_4"></p>
+<p>Greengrass Core의 로그 디렉토리에 액세스하려면 root 사용자로 전환해야 합니다.</p>
+<pre><code>sudo su -
+</code></pre><p>In a Cloud9 terminal:</p>
+<pre><code>cd /greengrass/ggc/var/log/system/
+tail -f *.log
+</code></pre><p>AWS Greengrass를 시작할 때 문제가 발생하면 &ldquo;crash.log&quot;파일에서 오류를 확인하십시오.</p>
+<pre><code>/greengrass/ggc/var/log/crash.log
+</code></pre><h4 id="enable-logging-for-greengrass">Enable Logging for Greengrass</h4>
+<p>Greengrass Core에는 기본적으로 로깅이 사용되지 않습니다. Core에서 발생하는 상황을 파악하고 문제 해결을 위해 로깅을 활성화해야합니다.</p>
+<p><a href="https://console.aws.amazon.com/greengrass/">Greengrass console</a>로 이동한 후, Groups 메뉴를 선택합니다.</p>
+<p>그리고, 앞서 생성한 <em><strong>greengrass-ml</strong></em>을 클릭합니다.</p>
+<p><img src="./images/c9_5.png" alt="c9_5"></p>
+<p><em><strong>Settings</strong></em>를 클릭하고, 페이지를 아래로 스크롤합니다.</p>
+<p>Local logs configuration 에서 <em><strong>Edit</strong></em>를 클릭합니다.
+<em><strong>Add another log type</strong></em>를 클릭합니다.</p>
+<p><img src="./images/c9_7.png" alt="c9_7"></p>
+<p><em><strong>User Lambdas</strong></em> 와 <em><strong>Greengrass system</strong></em> 을 모두 체크하고 <em><strong>update</strong></em>를 클릭합니다.</p>
+<p><img src="./images/c9_8.png" alt="c9_8"></p>
+<p>나머지 설정 값들은 default로 그대로 두고 <em><strong>Save</strong></em>를 클릭합니다.
+<img src="./images/c9_9.png" alt="c9_9"></p>
+<p>Greengrass Core의 Log files은 아래에 생성됩니다.</p>
+<ul>
+<li>Log directory: /greengrass/ggc/var/log</li>
+<li>System logs: /greengrass/ggc/var/log/system</li>
+<li>Lambda logs: /greengrass/ggc/var/log/user/&lt;AWS_REGION&gt;/&lt;ACCOUNT_ID&gt;</li>
+</ul>
+<p>Greengrass Group을 만들거나 변경 한 후에는 구성을 Greengrass Core에 배포해야합니다.</p>
+<p>먼저 Cloud9 terminal에서 다음 명령을 실행합니다.</p>
+<pre><code>sudo su -
+cd /greengrass/ggc/var/log/system
+tail -f localwatch/localwatch.log *.log
+</code></pre><p><a href="https://console.aws.amazon.com/greengrass/">Greengrass console</a>로 이동한 후, Groups 메뉴를 선택합니다.</p>
+<p>그리고, 앞서 생성한 <em><strong>greengrass-ml</strong></em>을 클릭합니다.</p>
+<p><img src="./images/c9_5.png" alt="c9_5"></p>
+<p><em><strong>Actions -&gt; Deploy</strong></em>를 클릭합니다.</p>
+<p><img src="./images/c9_10.png" alt="c9_10"></p>
+<p><em><strong>Automatic detection</strong></em> 을 클릭합니다.</p>
+<p><img src="./images/c9_11.png" alt="c9_11"></p>
+<p>정상적으로 deploy가 완료되면, terminal에 새로운 로그가 보여집니다.</p>
+<p><img src="./images/c9_12.png" alt="c9_12"></p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/greengrass301/lab2/index.html" title="실습3. Greengrass Group 생성 및 초기 설정 (25분)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/greengrass301/lab4/index.html" title="실습5. ML-Inference Lambda 생성 및 image 분류(25분)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/greengrass301/js/clipboard.min.js?1579528042"></script>
+    <script src="/greengrass301/js/perfect-scrollbar.min.js?1579528042"></script>
+    <script src="/greengrass301/js/perfect-scrollbar.jquery.min.js?1579528042"></script>
+    <script src="/greengrass301/js/jquery.sticky.js?1579528042"></script>
+    <script src="/greengrass301/js/featherlight.min.js?1579528042"></script>
+    <script src="/greengrass301/js/highlight.pack.js?1579528042"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/greengrass301/js/modernizr.custom-3.6.0.js?1579528042"></script>
+    <script src="/greengrass301/js/learn.js?1579528042"></script>
+    <script src="/greengrass301/js/hugo-learn.js?1579528042"></script>
+
+    <link href="/greengrass301/mermaid/mermaid.css?1579528042" rel="stylesheet" />
+    <script src="/greengrass301/mermaid/mermaid.js?1579528042"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

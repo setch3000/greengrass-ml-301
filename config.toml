@@ -1,0 +1,47 @@
+baseURL = "https://master.d70oqgpj5hm5m.amplifyapp.com/"
+languageCode = "ko-KR"
+defaultContentLanguage = "ko"
+
+title = "AWS Greengrass Workshop"
+theme = "hugo-theme-learn"
+themesdir = "."
+metaDataFormat = "yaml"
+defaultContentLanguageInSubdir= true
+#ignoreFiles = [ "\\.*lab3\\.*" ]
+
+[params]
+  description = "AWS Greengrass Workshop"
+  author = "Albert Lee"
+  showVisitedLinks = true
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "aws"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Languages.ko]
+title = "AWS Greengrass Workshop"
+weight = 1
+languageName = "한국어"
+
+[[Languages.ko.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> 크레딧"
+url = "/credits/"
+weight = 30
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true
+      unsafe = true
+      xHTML = true
+  [markup.highlight]
+    codeFences = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2

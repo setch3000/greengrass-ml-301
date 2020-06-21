@@ -1,1 +1,2 @@
-# greengrass-ml-301
+# greengrass301
+AWS Greengrass 301 workshop

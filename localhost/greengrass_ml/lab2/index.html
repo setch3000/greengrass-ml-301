@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="description" content="AWS Analytics Services Workshop">
+<meta name="author" content="Albert Lee">
+
+    <link rel="icon" href="/greengrass201/images/favicon.png" type="image/png">
+
+    <title>실습2. Greengrass Core device에서 Greengrass core software 실행 :: AWS IoT Greengrass 워크샵</title>
+
+    
+    <link href="/greengrass201/css/nucleus.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/fontawesome-all.min.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/hybrid.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/featherlight.min.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/perfect-scrollbar.min.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/auto-complete.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/atom-one-dark-reasonable.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/theme.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/hugo-theme.css?1578754535" rel="stylesheet">
+    
+      <link href="/greengrass201/css/theme-aws.css?1578754535" rel="stylesheet">
+    
+
+    <script src="/greengrass201/js/jquery-3.3.1.min.js?1578754535"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/greengrass201/lab2/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/greengrass_ml">
+	<img src="/greengrass_ml/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/greengrass201/js/lunr.min.js?1578754535"></script>
+<script type="text/javascript" src="/greengrass201/js/auto-complete.js?1578754535"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/\/greengrass201\/";
+    
+</script>
+<script type="text/javascript" src="/greengrass201/js/search.js?1578754535"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/intro/">
+          <b>1. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab0/" title="Lab 1. Launch AWS Resources with CloudFormation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab0/">
+          <b>2. </b>Lab 1. Launch AWS Resources with CloudFormation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab1/" title="Lab 2. Train a Model with Amazon SageMaker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab1/">
+          <b>3. </b>Lab 2. Train a Model with Amazon SageMaker
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab2/" title="실습2. Greengrass Core device에서 Greengrass core software 실행" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/greengrass201/lab2/">
+          <b>2. </b>실습2. Greengrass Core device에서 Greengrass core software 실행
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab3/" title="실습3. 기계 학습 추론 (ML inference)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab3/">
+          <b>5. </b>실습3. 기계 학습 추론 (ML inference)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab4/" title="실습4. AWS 기반 데이터 웨어하우징 - Amazon Redshift" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab4/">
+          <b>5. </b>실습4. AWS 기반 데이터 웨어하우징 - Amazon Redshift
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/greengrass201/'>홈</a> > 실습2. Greengrass Core device에서 Greengrass core software 실행
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습2. Greengrass Core device에서 Greengrass core software 실행
+            </h1>
+          
+
+        
+
+
+
+
+	<h4 id="-">실습 소개</h4>
+<p>Greengrass Core device에 Greengrass core software 설치를 실습합니다. Greengrass Core device는 RaspberryPi 또는 NVIDIA Jetson과 같은 open source h/w를 사용할 수도 있으나,
+본 실습에서는 EC2에 Greengrass core software 설치합니다.</p>
+<p><a href="(/greengrass201/lab0/)">실습1</a>에서 다운로드 받은 인증서와 설정 파일들을
+<a href="/greengrass201/lab0/">실습0</a>에서 생성한 EC2 instance에 복사합니다.</p>
+<p>먼저, <a href="/greengrass201/lab0/">실습0</a>에서 생성한 EC2 instance의 Public DNS 주소를 롹인합니다.
+<img src="./images/ggd1.png" alt="ggd1"></p>
+<p>하기와 같은 형식의 명령을 사용하여 실습1]((/greengrass201/lab0/))에서 다운로드 받은 인증서와 설정 파일들을 EC2에 복사합니다.</p>
+<pre><code>scp -i &lt;pem 파일 경로&gt; * ec2-user@&lt;EC2 instance 의 public DNS 주소&gt;:~ 
+</code></pre><p>예제</p>
+<pre><code>scp -i ~/hol-us-east-2.pem * ec2-user@ec2-3-17-147-4.us-east-2.compute.amazonaws.com:~ 
+</code></pre><p>EC2 instance에 SSH로 접속합니다. 하기와 같은 형식의 명령을 사용합니다.</p>
+<pre><code>ssh -i &lt;pem 파일 경로&gt; ec2-user@&lt;EC2 instance 의 public DNS 주소&gt;
+</code></pre><p>예제</p>
+<pre><code>ssh -i &quot;~/hol-us-east-2.pem&quot; ec2-user@ec2-3-17-147-4.us-east-2.compute.amazonaws.com
+</code></pre><p>ATS 앤드포인트에 접근하기 위하여 ATS 루트 CA 인증서를 다운로드합니다.</p>
+<pre><code>sudo wget -O /greengrass/certs/root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
+</code></pre><p>하기 명령을 통해서, /greengrass 폴더에 인증서를 압축 해제합니다.</p>
+<pre><code>sudo tar -xzvf &lt;인증서 및 설정 압축 파일 경로&gt; -C /greengrass
+</code></pre><p>예제</p>
+<pre><code>sudo tar -xzvf 3dbd8f5324-setup.tar.gz -C /greengrass
+</code></pre><p>EC2 instance (Greengrass core device)에서 AWS IoT Greengrass를 시작합니다.</p>
+<pre><code>cd /greengrass/ggc/core/
+sudo ./greengrassd start
+</code></pre><p>하기와 같은 명령으로, greengrass 데몬 실행 여부를 확인할 수 있습니다.</p>
+<pre><code>ps aux | grep -E 'greengrass.*daemon'
+</code></pre><p>출력 결과에 <!-- raw HTML omitted -->/greengrass/ggc/packages/1.10.0/bin/daemon<!-- raw HTML omitted -->와 같은 내용이 출력되면, 정상적으로 실행된 것입니다.</p>
+<p>local laptop에서 python용 AWS IoT Greengrass 코어 SDK 다운로드 합니다.</p>
+<pre><code>git clone https://github.com/aws/aws-greengrass-core-sdk-python.git
+</code></pre><p>greengrassHelloWorld.py가 포함되어 있는 HelloWorld 폴더에 greengrasssdk를 복사합니다.
+Lambda 함수 배포 패키지를 생성하려면 greengrassHelloWorld.py 파일과 greengrasssdk 폴더를 hello_world_python_lambda.zip이라는 압축된 .zip 파일로 저장합니다. .py 파일과 SDK 폴더는 디렉터리의 루트에 있어야 합니다.</p>
+<p><img src="./images/ggd2.png" alt="ggd2"></p>
+<pre><code>sudo zip -r hello_world_python_lambda.zip greengrasssdk greengrassHelloWorld.py
+</code></pre><p>아래 과정을 따라서, lambda를 생성합니다.</p>
+<p><a href="https://docs.aws.amazon.com/ko_kr/greengrass/latest/developerguide/create-lambda.html">https://docs.aws.amazon.com/ko_kr/greengrass/latest/developerguide/create-lambda.html</a></p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/greengrass201/lab1/" title="Lab 2. Train a Model with Amazon SageMaker"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/greengrass201/lab3/" title="실습3. 기계 학습 추론 (ML inference)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/greengrass201/js/clipboard.min.js?1578754535"></script>
+    <script src="/greengrass201/js/perfect-scrollbar.min.js?1578754535"></script>
+    <script src="/greengrass201/js/perfect-scrollbar.jquery.min.js?1578754535"></script>
+    <script src="/greengrass201/js/jquery.sticky.js?1578754535"></script>
+    <script src="/greengrass201/js/featherlight.min.js?1578754535"></script>
+    <script src="/greengrass201/js/highlight.pack.js?1578754535"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/greengrass201/js/modernizr.custom-3.6.0.js?1578754535"></script>
+    <script src="/greengrass201/js/learn.js?1578754535"></script>
+    <script src="/greengrass201/js/hugo-learn.js?1578754535"></script>
+
+    <link href="/greengrass201/mermaid/mermaid.css?1578754535" rel="stylesheet" />
+    <script src="/greengrass201/mermaid/mermaid.js?1578754535"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10&v=2"></' + 'script>')</script></body>
+</html>

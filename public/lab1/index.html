@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="description" content="AWS Greengrass Workshop">
+<meta name="author" content="Albert Lee">
+
+    <link rel="icon" href="/greengrass301/images/favicon.png" type="image/png">
+
+    <title>실습 2. Amazon SageMaker를 활용한 ML model Training (25분) :: AWS Greengrass Workshop</title>
+
+    
+    <link href="/greengrass301/css/nucleus.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/fontawesome-all.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/hybrid.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/featherlight.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/perfect-scrollbar.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/auto-complete.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/atom-one-dark-reasonable.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/theme.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/hugo-theme.css?1579528042" rel="stylesheet">
+    
+      <link href="/greengrass301/css/theme-aws.css?1579528042" rel="stylesheet">
+    
+
+    <script src="/greengrass301/js/jquery-3.3.1.min.js?1579528042"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/greengrass301/lab1/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/greengrass301/index.html">
+	<img src="/greengrass301/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/greengrass301/js/lunr.min.js?1579528042"></script>
+<script type="text/javascript" src="/greengrass301/js/auto-complete.js?1579528042"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/greengrass301\/";
+    
+</script>
+<script type="text/javascript" src="/greengrass301/js/search.js?1579528042"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/intro/index.html">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab0/" title="Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab0/index.html">
+          <b>1. </b>Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab1/" title="실습 2. Amazon SageMaker를 활용한 ML model Training (25분)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/greengrass301/lab1/index.html">
+          <b>2. </b>실습 2. Amazon SageMaker를 활용한 ML model Training (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab2/" title="실습3. Greengrass Group 생성 및 초기 설정 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab2/index.html">
+          <b>3. </b>실습3. Greengrass Group 생성 및 초기 설정 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab3/" title="실습4. greengrass Core software 설치 및 로깅 활성화 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab3/index.html">
+          <b>4. </b>실습4. greengrass Core software 설치 및 로깅 활성화 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab4/" title="실습5. ML-Inference Lambda 생성 및 image 분류(25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab4/index.html">
+          <b>5. </b>실습5. ML-Inference Lambda 생성 및 image 분류(25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/greengrass301/credits/index.html"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/greengrass301/'>홈</a> > 실습 2. Amazon SageMaker를 활용한 ML model Training (25분)
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#train-a-model-with-amazon-sagemaker">Train a Model with Amazon SageMaker</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              실습 2. Amazon SageMaker를 활용한 ML model Training (25분)
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="train-a-model-with-amazon-sagemaker">Train a Model with Amazon SageMaker</h3>
+<p>Amazon SageMaker에서 Jupyter 노트북을 사용하여 이미지 분류 모델을 학습합니다. 훈련된 모델은 나중에 AWS Greengrass에서 사용되어 엣지에서 로컬 이미지 분류를 수행합니다.<br>
+생성된 SageMaker 인스턴스의 이름은 CloudFormation 스택의 출력 섹션에서 찾을 수 있습니다.</p>
+<p>노트북에 액세스하고 모델을 학습 시키려면 다음 단계를 실행하십시오.</p>
+<h4 id="access-the-sagemaker-notebook-instance">Access the SageMaker Notebook Instance</h4>
+<p>생성하신 <em><strong>GGMLWorkshop</strong></em>스택에서 CloudFormation 콘솔의 스택에 대한 <em><strong>Output</strong></em> 섹션을 확인합니다.
+SageMakerInstance 항목의 링크에서 <em><strong>오른쪽 마우스</strong></em>를 클릭하여 <em><strong>Open link in new tab</strong></em>선택합니다.</p>
+<p><img src="images/lab1_image1.png" alt="lab1_image1.png"></p>
+<p>SageMaker instance로 이동됩니다.
+<em><strong>Greengrass-ML</strong></em> 폴더를 클릭합니다.</p>
+<p><img src="images/lab1_image2.png" alt="lab1_image2.png"></p>
+<p><em><strong>greengrass-ml_mxnet_cifar10_with_gluon_local.ipynb</strong></em>을 클릭하여 Jupyter notebook을 엽니다.</p>
+<p><img src="images/lab1_image3.png" alt="lab1_image3.png"></p>
+<p>Jupyter notebook의 code를 실행하기 전에 Kernel을 &lsquo;conda_amazonei_mxnet_p36'으로 변경합니다.
+<img src="images/lab1_image4.png" alt="lab1_image4.png"></p>
+<p>그리고, Model Training을 하기 위하여, notebook의 있는 내용대로 따라서 진행합니다.</p>
+<h4 id="working-with-jupyter-notebooks">Working with Jupyter notebooks</h4>
+<p>실행해야하는 코드가 포함 된 노트북의 셀(Cell)에는 좌측에 대괄호 []가 있습니다.</p>
+<p>[ ] 셀(Cell)이 실행되지 않았습니다<br>
+[*] 셀(Cell)이 활성화되었습니다. 코드에 따라 셀을 실행하는 데 약간의 시간이 걸릴 수 있습니다<br>
+[X] 여기서 X는 [6]과 같은 숫자이며, 셀의 코드가 실행되었음을 의미합니다.</p>
+<p>cell 실행 방법:<br>
+화면 상단에 Run 사용<br>
+키보드에서 &lsquo;Ctrl+<!-- raw HTML omitted -->'을 입력</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/greengrass301/lab0/index.html" title="Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/greengrass301/lab2/index.html" title="실습3. Greengrass Group 생성 및 초기 설정 (25분)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/greengrass301/js/clipboard.min.js?1579528042"></script>
+    <script src="/greengrass301/js/perfect-scrollbar.min.js?1579528042"></script>
+    <script src="/greengrass301/js/perfect-scrollbar.jquery.min.js?1579528042"></script>
+    <script src="/greengrass301/js/jquery.sticky.js?1579528042"></script>
+    <script src="/greengrass301/js/featherlight.min.js?1579528042"></script>
+    <script src="/greengrass301/js/highlight.pack.js?1579528042"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/greengrass301/js/modernizr.custom-3.6.0.js?1579528042"></script>
+    <script src="/greengrass301/js/learn.js?1579528042"></script>
+    <script src="/greengrass301/js/hugo-learn.js?1579528042"></script>
+
+    <link href="/greengrass301/mermaid/mermaid.css?1579528042" rel="stylesheet" />
+    <script src="/greengrass301/mermaid/mermaid.js?1579528042"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

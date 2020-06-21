@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="description" content="AWS Analytics Services Workshop">
+<meta name="author" content="Albert Lee">
+
+    <link rel="icon" href="/greengrass201/images/favicon.png" type="image/png">
+
+    <title>소개 :: AWS IoT Greengrass 워크샵</title>
+
+    
+    <link href="/greengrass201/css/nucleus.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/fontawesome-all.min.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/hybrid.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/featherlight.min.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/perfect-scrollbar.min.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/auto-complete.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/atom-one-dark-reasonable.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/theme.css?1578754535" rel="stylesheet">
+    <link href="/greengrass201/css/hugo-theme.css?1578754535" rel="stylesheet">
+    
+      <link href="/greengrass201/css/theme-aws.css?1578754535" rel="stylesheet">
+    
+
+    <script src="/greengrass201/js/jquery-3.3.1.min.js?1578754535"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/greengrass201/intro/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/greengrass_ml">
+	<img src="/greengrass_ml/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/greengrass201/js/lunr.min.js?1578754535"></script>
+<script type="text/javascript" src="/greengrass201/js/auto-complete.js?1578754535"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/\/greengrass201\/";
+    
+</script>
+<script type="text/javascript" src="/greengrass201/js/search.js?1578754535"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/intro/" title="소개" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/greengrass201/intro/">
+          <b>1. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab0/" title="Lab 1. Launch AWS Resources with CloudFormation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab0/">
+          <b>2. </b>Lab 1. Launch AWS Resources with CloudFormation
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab1/" title="Lab 2. Train a Model with Amazon SageMaker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab1/">
+          <b>3. </b>Lab 2. Train a Model with Amazon SageMaker
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab2/" title="실습2. Greengrass Core device에서 Greengrass core software 실행" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab2/">
+          <b>2. </b>실습2. Greengrass Core device에서 Greengrass core software 실행
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab3/" title="실습3. 기계 학습 추론 (ML inference)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab3/">
+          <b>5. </b>실습3. 기계 학습 추론 (ML inference)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass201/lab4/" title="실습4. AWS 기반 데이터 웨어하우징 - Amazon Redshift" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass201/lab4/">
+          <b>5. </b>실습4. AWS 기반 데이터 웨어하우징 - Amazon Redshift
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/greengrass201/'>홈</a> > 소개
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#aws-iot-greengrass-ml-workshop">AWS IoT Greengrass ML Workshop</a></li>
+        <li><a href="#heading">준비사항</a></li>
+        <li><a href="#workshop-content">Workshop Content</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction-to-aws-greengrass">Introduction to AWS Greengrass</a></li>
+        <li><a href="#greengrass-group">Greengrass Group</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              소개
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="aws-iot-greengrass-ml-workshop">AWS IoT Greengrass ML Workshop</h3>
+<p>이 워크샵을 통해 AWS Greengrass ML 추론 및 Amazon SageMaker의 개념을 배우고 Amazon SageMaker로 기계 학습 모델을 구축하고, 모델을 Greengrass Core에 배포하고, Lambda 함수를 사용하여 Greengrass Core에서 ML 추론을 실행하는 방법을 실습에서 배울 수 있습니다.<!-- raw HTML omitted --><!-- raw HTML omitted -->
+이 Workshop은 AWS Cloud9 환경 및 Amazon SageMaker 노트북 인스턴스를 사용하여 수행되도록 설계되었습니다. AWS Greengrass가 Cloud9 인스턴스에서 구성 및 실행됩니다.
+Workshop 환경은 AWS CloudFormation으로 자동 생성됩니다.<!-- raw HTML omitted -->
+Amazon Linux는 Cloud9 및 SageMaker의 운영 체제로 사용되며 표준 사용자는 <!-- raw HTML omitted -->ec2-user<!-- raw HTML omitted -->입니다.<!-- raw HTML omitted -->
+AWS Cloud9에는 클라우드에서 소프트웨어를 코딩, 빌드, 실행, 테스트, 디버깅 및 릴리스하는 데 사용하는 도구 모음이 포함되어 있습니다. 이러한 도구를 사용하려면 AWS Cloud9 통합 개발 환경 또는 IDE를 사용하십시오. 또한 이 워크샵의 실습에 필요한 브라우저에서 셸 액세스를 제공합니다.<!-- raw HTML omitted -->
+CIFAR-10 데이터 세트를 기반으로 한 이미지 분류 모델은 Amazon SageMaker와 함께 훈련 된 후 AWS Greengrass에서 사용되어 에지에서 이미지 분류를 수행합니다. 실제 환경에서는 카메라가 연결된 장치를 사용하는 것이 좋습니다. Greengrass 소프트웨어를 실행하는 EC2 인스턴스에 카메라가 연결되어 있지 않기 때문에 정기적으로 스캔되는 디렉토리에 이미지를 복사하기 만하면 이미지가 발견되면 분류됩니다.</p>
+<h3 id="heading">준비사항</h3>
+<ul>
+<li>AWS 계정: 자원을 생성할 수 있는 권한이 필요합니다.<!-- raw HTML omitted --></li>
+<li>브라우저: 최신 버전의 크롬, 파이어폭스를 사용하세요.<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+<p>관리자 권한이 있는 AWS 계정
+노트북
+브라우저</p>
+<h3 id="workshop-content">Workshop Content</h3>
+<p>이 세션은 엣지(edge)에서 머신 러닝 솔루션을 만드는 것에 관한 것입니다.<!-- raw HTML omitted --></p>
+<p>AWS Greengrass는 연결된 디바이스에서 엣지(edge)에서 안전한 방식으로 로컬 컴퓨팅, 메시징, 데이터 캐싱, 동기화 및 ML 추론 기능을 실행할 수있는 소프트웨어입니다.<!-- raw HTML omitted --></p>
+<p>Amazon SageMaker는 개발자와 데이터 과학자가 모든 규모의 기계 학습 모델을 쉽고 빠르게 구축, 교육 및 배포 할 수 있도록하는 완전히 관리되는 플랫폼입니다.<!-- raw HTML omitted --></p>
+<p>이 workshop을 통하여,</p>
+<ul>
+<li>Amazon SageMaker로 이미지를 분류하기 위해 머신 러닝 모델 교육</li>
+<li>Greengrass 그룹 프로비저닝</li>
+<li>Amazon SageMaker로 훈련 된 모델을 AWS IoT Greengrass에 다운로드</li>
+<li>AWS IoT Greengrass에서 사용할 AWS Lambda 함수 생성</li>
+<li>Lambda 함수를 사용하여 Greengrass에서 이미지 분류를 수행하십시오. Lambda 함수는 Greengrass에 배포 된 모델을 로드합니다.</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<p><img src="images/intro_image0.jpg" alt="intro_image2.jpg"></p>
+<h1 id="introduction-into-amazon-sagemaker">Introduction into Amazon SageMaker</h1>
+<p>Amazon SageMaker는 완전히 관리되는 머신 러닝 서비스입니다. 데이터 과학자와 개발자는 Amazon SageMaker를 사용하여 기계 학습 모델을 쉽고 빠르게 구축 및 교육 한 후 프로덕션 환경에서 호스팅되는 환경에 직접 배포 할 수 있습니다. 탐색 및 분석을 위해 데이터 소스에 쉽게 액세스 할 수 있도록 통합 Jupyter 저작 노트북 인스턴스를 제공하므로 서버를 관리 할 필요가 없습니다. 또한 분산 환경에서 매우 큰 데이터에 대해 효율적으로 실행되도록 최적화 된 공통 기계 학습 알고리즘을 제공합니다.</p>
+<h3 id="introduction-to-aws-greengrass">Introduction to AWS Greengrass</h3>
+<p>AWS Greengrass는 AWS 클라우드 기능을 로컬 디바이스로 확장하여 해당 디바이스가 정보 소스에 더 가까운 데이터를 수집 및 분석하는 동시에 로컬 네트워크에서 서로 안전하게 통신 할 수있는 소프트웨어입니다. 보다 구체적으로, AWS Greengrass를 사용하는 개발자는 클라우드에서 서버리스 코드 (AWS Lambda 함수)를 작성하여 애플리케이션의 로컬 실행을 위해 디바이스에 편리하게 배포 할 수 있습니다.</p>
+<p><img src="images/intro_image1.png" alt="intro_image1.png"></p>
+<h3 id="greengrass-group">Greengrass Group</h3>
+<p>AWS Greengrass 그룹 정의는 AWS Greengrass 핵심 장치 및 이와 통신하는 장치에 대한 설정 모음입니다. 다음 다이어그램은 AWS Greengrass 그룹을 구성하는 객체를 보여줍니다.</p>
+<p><img src="images/intro_image2.png" alt="intro_image2.png"></p>
+<h3 id="contact-us">Contact Us</h3>
+<p>AWS 서비스에 관한 질문은 AWS Support나 담당 AM을 통해서 문의해 주시고 본 워크샵의 발표자료에 관한 질문 사항은 아래의 email 링크를 통해 문의해 주시면 감사하겠습니다.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/greengrass201/" title="홈"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/greengrass201/lab0/" title="Lab 1. Launch AWS Resources with CloudFormation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/greengrass201/js/clipboard.min.js?1578754535"></script>
+    <script src="/greengrass201/js/perfect-scrollbar.min.js?1578754535"></script>
+    <script src="/greengrass201/js/perfect-scrollbar.jquery.min.js?1578754535"></script>
+    <script src="/greengrass201/js/jquery.sticky.js?1578754535"></script>
+    <script src="/greengrass201/js/featherlight.min.js?1578754535"></script>
+    <script src="/greengrass201/js/highlight.pack.js?1578754535"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/greengrass201/js/modernizr.custom-3.6.0.js?1578754535"></script>
+    <script src="/greengrass201/js/learn.js?1578754535"></script>
+    <script src="/greengrass201/js/hugo-learn.js?1578754535"></script>
+
+    <link href="/greengrass201/mermaid/mermaid.css?1578754535" rel="stylesheet" />
+    <script src="/greengrass201/mermaid/mermaid.js?1578754535"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10&v=2"></' + 'script>')</script></body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.62.1" />
+    <meta name="description" content="AWS Greengrass Workshop">
+<meta name="author" content="Albert Lee">
+
+    <link rel="icon" href="/greengrass301/images/favicon.png" type="image/png">
+
+    <title>Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분) :: AWS Greengrass Workshop</title>
+
+    
+    <link href="/greengrass301/css/nucleus.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/fontawesome-all.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/hybrid.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/featherlight.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/perfect-scrollbar.min.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/auto-complete.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/atom-one-dark-reasonable.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/theme.css?1579528042" rel="stylesheet">
+    <link href="/greengrass301/css/hugo-theme.css?1579528042" rel="stylesheet">
+    
+      <link href="/greengrass301/css/theme-aws.css?1579528042" rel="stylesheet">
+    
+
+    <script src="/greengrass301/js/jquery-3.3.1.min.js?1579528042"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/greengrass301/lab0/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/greengrass301/index.html">
+	<img src="/greengrass301/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/greengrass301/js/lunr.min.js?1579528042"></script>
+<script type="text/javascript" src="/greengrass301/js/auto-complete.js?1579528042"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/greengrass301\/";
+    
+</script>
+<script type="text/javascript" src="/greengrass301/js/search.js?1579528042"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/intro/" title="소개" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/intro/index.html">
+          <b>0. </b>소개
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab0/" title="Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/greengrass301/lab0/index.html">
+          <b>1. </b>Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab1/" title="실습 2. Amazon SageMaker를 활용한 ML model Training (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab1/index.html">
+          <b>2. </b>실습 2. Amazon SageMaker를 활용한 ML model Training (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab2/" title="실습3. Greengrass Group 생성 및 초기 설정 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab2/index.html">
+          <b>3. </b>실습3. Greengrass Group 생성 및 초기 설정 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab3/" title="실습4. greengrass Core software 설치 및 로깅 활성화 (25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab3/index.html">
+          <b>4. </b>실습4. greengrass Core software 설치 및 로깅 활성화 (25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/greengrass301/lab4/" title="실습5. ML-Inference Lambda 생성 및 image 분류(25분)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/greengrass301/lab4/index.html">
+          <b>5. </b>실습5. ML-Inference Lambda 생성 및 image 분류(25분)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/greengrass301/credits/index.html"><i class='fas fa-fw fa-bullhorn'></i> 크레딧</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/greengrass301/'>홈</a> > Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cloudformation--aws-resource-">CloudFormation을 활용한 AWS Resource 생성</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lab 1. CloudFormation을 활용한 AWS Resource 생성 (25분)
+            </h1>
+          
+
+        
+
+
+
+
+	<h3 id="cloudformation--aws-resource-">CloudFormation을 활용한 AWS Resource 생성</h3>
+<p>이 워크샵에 필요한 AWS 리소스를 생성하기 위해 CloudFormation 스택을 제공합니다.<br>
+CloudFormation 스택은 AWS Greengrass를 실행하는 데 사용될 EC2 인스턴스를 다른 리소스 중에서 생성합니다. 또한 SageMaker 노트북 인스턴스가 생성되고 부트 스트랩됩니다.<br>
+아래 링크 중 하나를 선택하면 스택이 시작될 AWS 콘솔의 CloudFormation 으로 자동 redirection됩니다.</p>
+<ul>
+<li><a href="https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?stackName=GGMLWorkshop&amp;templateURL=http://s3-eu-central-1.amazonaws.com/aws-workshop-cfn/cfn/cfn-iot-gg-ml-c9-workshop-20190502.json">Launch CloudFormation stack in eu-central-1 (Frankfurt)</a></li>
+<li><a href="https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=GGMLWorkshop&amp;templateURL=http://s3-eu-central-1.amazonaws.com/aws-workshop-cfn/cfn/cfn-iot-gg-ml-c9-workshop-20190502.json">Launch CloudFormation stack in eu-west-1 (Ireland)</a></li>
+<li><a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=GGMLWorkshop&amp;templateURL=http://s3-eu-central-1.amazonaws.com/aws-workshop-cfn/cfn/cfn-iot-gg-ml-c9-workshop-20190502.json">Launch CloudFormation stack in us-east-1 (N. Virginia)</a></li>
+<li><a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=GGMLWorkshop&amp;templateURL=http://s3-eu-central-1.amazonaws.com/aws-workshop-cfn/cfn/cfn-iot-gg-ml-c9-workshop-20190502.json">Launch CloudFormation stack in us-west-2 (Oregon)</a></li>
+</ul>
+<p>CloudFormation 스택은 최소한 다음 리소스를 만듭니다.</p>
+<ul>
+<li>SageMaker에 필요한 S3 버킷</li>
+<li>EC2 및 SageMaker 인스턴스에 퍼블릭 서브넷 + 보안 그룹이있는 VPC</li>
+<li>Greengrass를 실행하고 Lambda 함수를 생성하는 Cloud9 인스턴스</li>
+<li>Jupyter 노트북에서 모델을 정의하는 SageMaker 노트북 인스턴스. 모델 자체는 AWS SageMaker 서비스를 사용하여 학습됩니다.</li>
+<li>Cloud9 인스턴스의 인스턴스 프로파일</li>
+<li>AWS 리소스에 액세스하는 데 필요한 IAM 역할</li>
+</ul>
+<p>AWS CloudFormation 콘솔의 Quick create stack 페이지로 리디렉션 된 후 다음 단계를 수행하여 스택을 시작하십시오.</p>
+<ul>
+<li>EC2 Instance Type for Cloud9: (Optional) Cloud9 instance type을 선택합니다. 미리 설정된 <em><strong>m4.large</strong></em>을 사용하면 workshop을 실행하는 데에 충분합니다.</li>
+<li>EC2 Instance Type for Sagemaker: (Optional) SageMaker를 위한 instance type을 선택합니다. 미리 설정된 <em><strong>ml.t2.medium</strong></em>을 사용하면 workshop을 실행하는 데에 충분합니다.</li>
+<li>Capabilities 에서 <em><strong>I acknowledge that AWS CloudFormation might create IAM resources</strong></em>을을 체크합니다.</li>
+<li>Create stack 버튼을 누르고, stack 생성이 완료될 때까지 기다립니다. 10분 정도 소요됩니다.</li>
+</ul>
+<p><img src="images/lab0_image1.png" alt="lab0_image1.png"></p>
+<p>CloudFormation 콘솔의 스택에 대한 <em><strong>Output</strong></em> 섹션에서 생성 된 리소스에 대한 정보르 찾을 수 있습니다. 언제든지 <em><strong>Output</strong></em> 섹션으로 돌아와서 값을 확인할 수 있습니다.</p>
+<p><img src="images/lab0_image2.png" alt="lab0_image2.png"></p>
+<h4 id="cloud9-ide-">Cloud9 IDE에 접속</h4>
+<p>생성하신 <em><strong>GGMLWorkshop</strong></em>스택에서 CloudFormation 콘솔의 스택에 대한 <em><strong>Output</strong></em> 섹션을 확인합니다.
+Cloud9IDE 항목의 링크에서 오른쪽 마우스를 클릭하여 <em><strong>Open link in new tab</strong></em>선택합니다.</p>
+<p><img src="images/lab0_image5.png" alt="lab0_image5.png"></p>
+<p>하기 화면과 같은 Cloud9 instance로 이동됩니다.</p>
+<p><img src="images/lab0_image6.png" alt="lab0_image6.png"></p>
+<h4 id="home-folder--">home folder가 보여지도록 설정</h4>
+<p>Workshop에서 사용되는 많은 파일이 Cloud9 IDE에 복사되어 있습니다. 기본적으로 홈 폴더의 내용은 표시되지 않습니다. 따라서 이것을 변경해야합니다.</p>
+<p><img src="images/lab0_image7.png" alt="lab0_image7.png"></p>
+<h4 id="open-a-terminal">Open a Terminal</h4>
+<p>Cloud9 IDE에서 terminal (shell)을 열기 위해서 Tab bar에서 <em><strong>+</strong></em>를 클릭하고 <em><strong>New Terminal</strong></em>을 선택합니다.</p>
+<p><img src="images/lab0_image8.png" alt="lab0_image8.png"></p>
+<h4 id="copying-files-fromto-the-cloud9-ide">Copying Files from/to the Cloud9 IDE</h4>
+<p>Cloud9 IDE로 직접 또는 S3 버킷을 통해 간접적으로 파일을 업로드 할 수 있습니다. 워크숍 중에 나중에 Greengrass Core의 구성 파일을 Cloud9 인스턴스로 복사해야합니다.</p>
+<p>file 업로드: File 메뉴에서 Upload Local Files&hellip;선택
+file 다운로드: filename 에서 오른쪽 마우스 클릭 &gt; Download 클릭</p>
+<h4 id="s3">S3</h4>
+<p>CloudFormation 스택이 S3 버킷을 생성했습니다. CloudFormation 스택의 출력 섹션에서 버킷 이름을 찾을 수 있습니다. &ldquo;$S3_BUCKET&quot;이라는 셸(shell) 변수에도 버킷 이름이 있습니다.<br>
+Cloud9 IDE의 터미널에서 awscli를 사용하여 파일을 버킷에 복사하거나 버킷에서 복사합니다.</p>
+<p>bucket에서 파일 복사해 오기</p>
+<p><code>aws s3 cp s3://$S3_BUCKET/my_object .</code></p>
+<p>bucket에 파일 복사하기</p>
+<p><code>aws s3 cp my_file s3://$S3_BUCKET/my_file</code></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/greengrass301/intro/index.html" title="소개"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/greengrass301/lab1/index.html" title="실습 2. Amazon SageMaker를 활용한 ML model Training (25분)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/greengrass301/js/clipboard.min.js?1579528042"></script>
+    <script src="/greengrass301/js/perfect-scrollbar.min.js?1579528042"></script>
+    <script src="/greengrass301/js/perfect-scrollbar.jquery.min.js?1579528042"></script>
+    <script src="/greengrass301/js/jquery.sticky.js?1579528042"></script>
+    <script src="/greengrass301/js/featherlight.min.js?1579528042"></script>
+    <script src="/greengrass301/js/highlight.pack.js?1579528042"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/greengrass301/js/modernizr.custom-3.6.0.js?1579528042"></script>
+    <script src="/greengrass301/js/learn.js?1579528042"></script>
+    <script src="/greengrass301/js/hugo-learn.js?1579528042"></script>
+
+    <link href="/greengrass301/mermaid/mermaid.css?1579528042" rel="stylesheet" />
+    <script src="/greengrass301/mermaid/mermaid.js?1579528042"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

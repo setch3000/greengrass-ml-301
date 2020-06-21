@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>홈 on AWS Greengrass Workshop</title>
+    <link>/greengrass301/</link>
+    <description>Recent content in 홈 on AWS Greengrass Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 09 Apr 2016 16:50:16 +0200</lastBuildDate>
+    
+	<atom:link href="/greengrass301/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Credit</title>
+      <link>/greengrass301/credits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/greengrass301/credits/</guid>
+      <description>Original Author  Philipp Sacha (Specialist SA, IoT)  한글 번역 (Korean Translation)  이세현 (IoT Specialist SA)  </description>
+    </item>
+    
+  </channel>
+</rss>
