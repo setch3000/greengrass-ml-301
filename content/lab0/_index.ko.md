@@ -10,7 +10,7 @@ pre: "<b>1. </b>"
 CloudFormation 스택은 AWS Greengrass를 실행하는 데 사용될 EC2 인스턴스를 다른 리소스 중에서 생성합니다. 또한 SageMaker 노트북 인스턴스가 생성되고 부트 스트랩됩니다.\
 아래 링크를 선택하면 스택이 시작될 AWS 콘솔의 CloudFormation 으로 자동 redirection됩니다.
 
-* [Launch CloudFormation stack in us-east-1 (N. Virginia)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=GGMLWorkshop&templateURL=https://public-cloudformation.s3.ap-northeast-2.amazonaws.com/cfn-iot-gg-ml-c9-workshop-20190502_modified.json)
+* [Launch CloudFormation stack in us-east-1 (N. Virginia)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=PublicIoTWorkshop&templateURL=https://public-cloudformation.s3.ap-northeast-2.amazonaws.com/greengrass-ml-301/greengrass-ml-301.yml)
 
 
 CloudFormation 스택은 최소한 다음 리소스를 만듭니다.
