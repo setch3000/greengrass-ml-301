@@ -8,7 +8,7 @@ pre: "<b>4. </b>"
 #### upload the tar.gz-file
 
 실습3에서 다운로드한 resources as a tar.gz 파일을 cloud9에 업로드합니다.
-tar.gz 파일의 이름은 -setup.tar.gz와 유사합니다.
+tar.gz 파일의 이름은 <unique-string>-setup.tar.gz와 유사합니다.
 tar.gz 파일에는 Greengrass Core를 구성하는 데 사용될 키, 인증서 및 구성 파일 (config.json)이 포함되어 있습니다.
 
 ![picture1](./images/picture1.png)
@@ -28,13 +28,13 @@ sudo tar zxvf <unique-string>-setup.tar.gz -C /greengrass/
 
 아래와 같은 형식의 명령을 사용합니다.
 
-`` shell
+``` shell
 scp -i <키페어 파일 이름> <tar.gz 파일 이름> ubuntu@ec2-18-215-162-143.compute-1.amazonaws.com:~
 ```
 
 아래는 예제입니다.
 
-`` shell
+``` shell
 scp -i "ee-default-keypair.pem" 61de6b70eb-setup.tar.gzubuntu@ec2-18-206-222-84.compute-1.amazonaws.com:~
 ```
 
