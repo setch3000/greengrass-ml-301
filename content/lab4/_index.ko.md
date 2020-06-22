@@ -8,7 +8,8 @@ pre: "<b>5. </b>"
 
 이제 Lambda 함수를 만들어야 합니다. 이 Lambda 기능은 Greengrass Core에 배포됩니다. 이 기능은 SageMaker에서 이전에 학습한 기계 학습 모델을 로드합니다.
 
-우선, Lambda는 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent",            "wCurrentLoad", "wEncoderVelocity" 데이터를 수집합니다.
+Lambda가 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent",            "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하는 상황을 가정하여 본 실습을 작성하였습니다.
+이러한 상황을 가정하여 Lambda는 매초 마다 위 6가지의 데이터를 random한 값으로 발생시킵니다.
 
 그런 다음 정기적으로 발생되는 데이터와 이전에 학습된 기계 학습 모델을 활용하여, 실린더(Cylinder)에 비정상(abnormal)한 상태가 발생될 것이라는 것을 예측합니다.
 예측 결과는 클라우드로 전송되며, 이것을 통하여 예지 정비 등을 수행할 수 있습니다.
@@ -94,29 +95,16 @@ Resources를 클릭하고 Local탭에서 ***Add a local resource***를 클릭합
 
 그리고, 아래와 같이 설정합니다.
 
-* Resource name: ***ImageDirectory***
+* Resource name: ***xgboost_model***
 * Check Volume에서
-  * Source path: ***/greengrass-ml/images/cifar10***
-  * Destination path: ***/images***
+  * Source path: ***/greengrass-ml***
+  * Destination path: ***/models/anomaly-detection***
 * ***Automatically add OS group permissions of the Linux group that owns the resource***을 선택
 * Lambda function affiliations 에서 ***GGMLInference***을 선택하고, ***Read and write access***을 선택
 
 ***Save***를 클릭하여 변경 사항을 저장합니다.
-![lambda12.png](./images/lambda12.png)
+![resource1.png](./images/resource1.png)
 
-
-Machine Learning tab에서 ***Add a machine learning resource***를 클릭합니다.
-![lab5_resource3](./images/lab5_resource3.png)
-
-* Resource name: ***ModelImageClassification***
-* ***Use a model trained in AWS SageMaker*** 선택
-* SageMaker model: SageMaker에서 모델을 학습하는 데 사용된 Traning job 이름을 선택하십시오. ***greengrass-ml-cifar10-year-month-day-hour-minute-second-millisecond***와 같은 형식으로 보여집니다.
-* Local path: ***/models/image-classification***
-* Lambda function affiliations: ***GGMLInference>*** 선택하고, ***Read-only access***으로 그대로 둡니다.
-
-***Save***를 클릭하여 변경 사항을 저장합니다.
-
-![lambda13.png](./images/lambda13.png)
 
 #### 구독(Subscription) 생성
 
@@ -147,13 +135,13 @@ topic filter: ***greengrass/ml/inference/#***와 같이 입력합니다(선택 �
 
 ***Actions*** -> ***Deploy***를 클릭합니다.
 
-![lab5_subs4.png.png](./images/lab5_subs4.png)
+![lab5_subs4.png.png](./images/lab5_subs5.png)
 
-#### 이미지 분류 Classify Images
+#### 비정상 상태 예측 (Abnormality forecasting)
 
-Lambda 함수는 5 초마다 ***/greengrass-ml/images/cifar10*** 디렉토리를 검색합니다. png 또는 jpg 형식의 이미지 이미지가 발견되면 ml 모델을 사용하여 분류됩니다. 분류 결과는 MQTT 메시지로 게시되고 AWS 클라우드로 전송됩니다.
+Lambda가 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent",            "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하는 상황을 가정하여, 매초 마다 위 6가지의 데이터를 random한 값으로 발생시킵니다.
 
-EC2 인스턴스에서 ***~/greengrass-ml/images*** 디렉토리에 예제 이미지가 있습니다. Lambda가 스캔하는 디렉토리에 하나 이상의 이미지를 복사하고 AWS 클라우드에서 결과를 찾고 Lambda 함수의 로그 파일도 살펴보십시오.
+Lambda에서 매 초마다 발생되는 데이터와 이전에 학습된 기계 학습 모델을 활용하여, 실린더(Cylinder)에 비정상(abnormal)한 상태에 대한 예측값을 IoT Core로 전송합니다.
 
 [AWS IoT Core console](https://console.aws.amazon.com/iot/)로 이동 후에, Test 메뉴에서 다음 topic을 구독(subscribe)합니다.
 
@@ -161,50 +149,6 @@ EC2 인스턴스에서 ***~/greengrass-ml/images*** 디렉토리에 예제 이�
 
 ![image_classify1.png](./images/image_classify1.png)
 
-Cloud9 terminal에서 (root user로) 하기 명령을 실행합니다:
-
-```
-sudo su -
-cd /greengrass/ggc/var/log/user/[YOUR_AWS_REGION]/[YOUR_AWS_ACCOUNT_ID]
-tail -f cloud9-GGMLInference-GGMLInference-*.log  
-```
-
-아래는 예제입니다.
-
-```
-sudo su -
-cd /greengrass/ggc/var/log/user/us-east-1/714811826601
-tail -f cloud9-GGMLInference-GGMLInference-*.log  
-```
-
-![image_classify2.png](./images/image_classify2.png)
-
-Cloud9 terminal을 하나 더 추가하고 (ec2-user로) 하기 명령을 실행합니다:
-
-```
-cd ~/greengrass-ml/images/
-sudo cp bird1.png /greengrass-ml/images/cifar10
-```
-
-![image_classify3.png](./images/image_classify3.png)
-
-***greengrass/ml/inference/greengrass-ml_Core*** 주제(topic)에서 다음과 유사한 메시지를 수신해야 합니다.
-
-![image_classify4.png](./images/image_classify4.png)
-
-***~/greengrass-ml/images/*** 폴더 내의 다른 이미지를 사용하여 추가적인 테스트를 할 수 있습니다.
-
-* airplane1.png
-* automobile1.png
-* bird1.png
-* cat1.png
-* deer1.png
-* dog1.png
-* frog1.png
-* horse1.png
-* plane-draw.jpeg
-* ship1.png
-* truck1.png
 
 ---
 <p align="center">
