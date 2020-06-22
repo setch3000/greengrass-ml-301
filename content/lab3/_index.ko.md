@@ -58,67 +58,83 @@ ssh -i <키페어 파일 이름> ubuntu@<사물(thing)의 역할을 하는 EC2 �
 ssh -i "ee-default-keypair.pem" ubuntu@ec2-18-206-222-84.compute-1.amazonaws.com
 ```
 
+![picture3](./images/picture3.png)
+
 #### Updating greengrass Core software
 
-Cloud9(EC2)에 이미 이전 버전의 greengrass core software가 설치되어 있습니다만, 이것을 최신 버전으로 업그레이드애 해야 됩니다.
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 하기 명령을 통해서 tar.gz-file 을 압축 해제 합니다.
 
 ``` shell
 sudo tar zxvf <unique-string>-setup.tar.gz -C /greengrass/
 ```
 
+아래는 예제입니다.
+
+``` shell
+sudo tar zxvf 61de6b70eb-setup.tar.gz -C /greengrass/
+```
+![picture4](./images/picture4.png)
 
 
 #### ATS 루트 CA 인증서를 다운로드
 
-ATS 앤드포인트에 접근하기 위하여 ATS 루트 CA 인증서를 다운로드합니다.
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 ATS 앤드포인트에 접근하기 위하여 ATS 루트 CA 인증서를 다운로드합니다.
 
 ``` shell
-cd /greengrass/certs/ 
+cd /greengrass/certs/
 sudo wget -O root.ca.pem https://www.amazontrust.com/repository/AmazonRootCA1.pem
 ```
 
+![picture5](./images/picture5.png)
+
 #### Greengrass Core 시작
 
-이제 Greengrass Core를 시작할 준비가되었습니다.
+<!-- 이제 Greengrass Core를 시작할 준비가되었습니다.
 
 Greengrass Core를 시작하기 전에 [AWS IoT Core console](https://console.aws.amazon.com/iot/)로 이동한 후 Test 메뉴를 이용하여, ***$aws/events/#*** 와 ***$aws/things/#*** 토픽을 구독 신청합니다.
 
-![c9_3](./images/c9_3.png)
+![c9_3](./images/c9_3.png) -->
 
-Cloud9 terminal에서 아래 명령을 실행합니다.
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 아래 명령을 실행합니다.
 
 ```
 cd /greengrass/ggc/core
 sudo ./greengrassd start
 ```
 
-그리고, 다시 AWS IoT Core 콘솔에서 MQTT client의 출력을 확인합니다.
-
-![c9_4](./images/c9_4.png)
+![picture6](./images/picture6.png)
 
 
+<!-- 그리고, 다시 AWS IoT Core 콘솔에서 MQTT client의 출력을 확인합니다.
+
+![c9_4](./images/c9_4.png) -->
 
 
+#### Greengrass Core 로그
 
-
-Greengrass Core의 로그 디렉토리에 액세스하려면 root 사용자로 전환해야 합니다.
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 Greengrass Core의 로그 디렉토리에 액세스하려면 root 사용자로 전환해야 합니다.
 
 ``` shell
 sudo su -
 ```
 
-Cloud9 터미널에서 아래 명령을 실행합니다:
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 아래 명령을 실행합니다:
 
 ``` shell
 cd /greengrass/ggc/var/log/system/
 tail -f *.log
 ```
 
-AWS Greengrass를 시작할 때 문제가 발생하면 "crash.log"파일에서 오류를 확인하십시오(문제가 없을 경우 이 단계는 건너 뛰시면 됩니다.).
+![picture7](./images/picture7.png)
+
+
+<!-- AWS Greengrass를 시작할 때 문제가 발생하면 "crash.log"파일에서 오류를 확인하십시오(문제가 없을 경우 이 단계는 건너 뛰시면 됩니다.).
 
 ``` shell
 sudo cat /greengrass/ggc/var/log/crash.log
-```
+``` -->
+
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 잠시 후 ***Ctrl +C***를 입력하여 로그 보기를 중단합니다.
 
 #### Enable Logging for Greengrass
 
@@ -152,7 +168,7 @@ Greengrass Core의 Log files은 아래에 생성됩니다.
 
 Greengrass Group을 만들거나 변경 한 후에는 구성을 Greengrass Core에 배포해야합니다.
 
-먼저 Cloud9 terminal에서 다음 명령을 실행합니다.
+먼저 ***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 다음 명령을 실행합니다.
 
 ``` shell
 sudo su -
@@ -174,9 +190,13 @@ tail -f localwatch/localwatch.log *.log
 
 ![c9_11](./images/c9_11.png)
 
-정상적으로 deploy가 완료되면, terminal에 새로운 로그가 보여집니다.
+정상적으로 deploy가 완료되면 콘솔에 ***Successfully completed***로 표시됩니다.
 
 ![c9_12](./images/c9_12.png)
+
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에 새로운 로그가 보여집니다.
+
+![picture8](./images/picture8.png)
 
 
 ---
