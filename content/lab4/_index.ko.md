@@ -1,5 +1,5 @@
 ---
-title: 실습 5. ML-Inference Lambda 생성 및 image 분류(25분)
+title: 실습 5. ML-Inference Lambda 생성 및 추론(25분)
 weight: 60
 pre: "<b>5. </b>"
 ---

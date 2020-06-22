@@ -3,8 +3,11 @@ title: Credit
 disableToc: true
 ---
 
-## Original Author
-+ Philipp Sacha (Specialist SA, IoT)
 
-## 한글 번역 (Korean Translation)
+
+## IoT
 * 이세현 (IoT Specialist SA)
+
+## Machine Learning
+* 김대근 (AIML Specialist SA)
+* 정현아 (Solutions Architect)
