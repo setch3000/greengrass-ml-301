@@ -261,7 +261,7 @@ Resources:
       InstanceType: "t2.micro"
       KeyName:
         Ref: KeyName
-      ImageId: ami-0bf98a732f1bed563
+      ImageId: ami-091030d802fa62a35
       Monitoring: 'false'
       Tags:
         - Key: Name
@@ -367,8 +367,8 @@ Resources:
                 
 Outputs:
   IoTThing:
-    Description: EC2 instance as the bastion host for Amazon DocumentDb
-    Value: !Ref BastionHost
+    Description: Public IP of IoT Thing (EC2)
+    Value: !GetAtt BastionHost.PublicIp
 
   Cloud9IDE:
     Description: Cloud9 Environment
