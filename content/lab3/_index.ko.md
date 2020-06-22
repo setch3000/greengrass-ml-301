@@ -46,7 +46,7 @@ scp -i "ee-default-keypair.pem" 61de6b70eb-setup.tar.gzubuntu@ec2-18-206-222-84.
 
 ![picture2](./images/picture2.png)
 
-사물(thing)의 역할을 하는 EC2에 접속하기 위하여 Cloud9의 터미널에서 하기 명령을 실행합니다.
+Cloud9의 터미널에서 하기 명령을 실행하여 사물(thing)의 역할을 하는 EC2에 접속합니다.
 
 ``` shell
 ssh -i <키페어 파일 이름> ubuntu@<사물(thing)의 역할을 하는 EC2 서버 주소>
