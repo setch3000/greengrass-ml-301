@@ -8,7 +8,7 @@ pre: "<b>5. </b>"
 
 이제 Lambda 함수를 만들어야 합니다. 이 Lambda 기능은 Greengrass Core에 배포됩니다. 이 기능은 SageMaker에서 이전에 학습한 기계 학습 모델을 로드합니다.
 
-Lambda가 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent",            "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하는 상황을 가정하여 본 실습을 작성하였습니다.
+Lambda가 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent", "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하는 상황을 가정하여 본 실습을 작성하였습니다.
 이러한 상황을 가정하여 Lambda는 매초 마다 위 6가지의 데이터를 random한 값으로 발생시킵니다.
 
 그런 다음 정기적으로 발생되는 데이터와 이전에 학습된 기계 학습 모델을 활용하여, 실린더(Cylinder)에 비정상(abnormal)한 상태가 발생될 것이라는 것을 예측합니다.
@@ -139,7 +139,7 @@ topic filter: ***greengrass/ml/inference/#***와 같이 입력합니다(선택 �
 
 #### 비정상 상태 예측 (Abnormality forecasting)
 
-Lambda가 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent",            "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하는 상황을 가정하여, 매초 마다 위 6가지의 데이터를 random한 값으로 발생시킵니다.
+Lambda가 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent", "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하는 상황을 가정하여, 매초 마다 위 6가지의 데이터를 random한 값으로 발생시킵니다.
 
 Lambda에서 매 초마다 발생되는 데이터와 이전에 학습된 기계 학습 모델을 활용하여, 실린더(Cylinder)에 비정상(abnormal)한 상태에 대한 예측값을 IoT Core로 전송합니다.
 

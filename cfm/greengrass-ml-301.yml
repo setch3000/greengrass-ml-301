@@ -367,8 +367,8 @@ Resources:
                 
 Outputs:
   IoTThing:
-    Description: Public IP of IoT Thing (EC2)
-    Value: !GetAtt BastionHost.PublicIp
+    Description: Public DNS Name of IoT Thing (EC2)
+    Value: !GetAtt BastionHost.PublicDnsName
 
   Cloud9IDE:
     Description: Cloud9 Environment
