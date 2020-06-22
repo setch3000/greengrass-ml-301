@@ -6,11 +6,12 @@ pre: "<b>5. </b>"
 
 #### Create ML-Inference Lambda
 
-이제 Lambda 함수를 만들어야합니다. 이 Lambda 기능은 Greengrass Core에 배포됩니다. 이 기능은 SageMaker에서 이전에 학습한 기계 학습 모델을 로드합니다. 그런 다음 정기적으로 이미지 디렉토리를 스캔합니다. 이미지가 발견되면 모델별로 분류되어 결과가 클라우드로 전송됩니다.\
-Lambda 함수에는 나중에 연습에서 두 가지 리소스가 할당됩니다.
+이제 Lambda 함수를 만들어야 합니다. 이 Lambda 기능은 Greengrass Core에 배포됩니다. 이 기능은 SageMaker에서 이전에 학습한 기계 학습 모델을 로드합니다.
 
-* 기계 학습 리소스 : 학습한 모델
-* 볼륨 자원 (volume resource) : 이미지를 스캔하는 디렉토리
+우선, Lambda는 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent",            "wCurrentLoad", "wEncoderVelocity" 데이터를 수집합니다.
+
+그런 다음 정기적으로 발생되는 데이터와 이전에 학습된 기계 학습 모델을 활용하여, 실린더(Cylinder)에 비정상(abnormal)한 상태가 발생될 것이라는 것을 예측합니다.
+예측 결과는 클라우드로 전송되며, 이것을 통하여 예지 정비 등을 수행할 수 있습니다.
 
 Greengrass에서 실행해야하는 Lambda 함수에는 버전이 있어야합니다. 버전 외에도 함수 별칭(alias)을 작성합니다.\
 Greengrass의 요구 사항은 아니지만 Greengrass에서 리소스를 쉽게 할당하거나 구독을 만들 수 있습니다. 리소스/구독이 버전에 할당되면 새 버전의 Lambda를 배포할 때 업데이트해야 하는데, 별칭(alias)을 사용하면 이러한 번거로움을 피할 수 있습니다. 새 버전을 만든 경우 새 버전에 별칭(alias)만 지정하면 됩니다.
