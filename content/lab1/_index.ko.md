@@ -13,24 +13,29 @@ Amazon SageMaker에서 Jupyter 노트북을 사용하여 이미지 분류 모델
 
 #### Access the SageMaker Notebook Instance
 
-생성하신 ***GGMLWorkshop***스택에서 CloudFormation 콘솔의 스택에 대한 ***Output*** 섹션을 확인합니다.
+생성하신 CloudFormation 스택에서 ***Output*** 섹션을 확인합니다.
 SageMakerInstance 항목의 링크에서 ***오른쪽 마우스***를 클릭하여 ***Open link in new tab***선택합니다.
 
-![lab1_image1.png](images/lab1_image1.png)
+![picture1.png](images/picture1.png)
 
 SageMaker instance로 이동됩니다.
 ***Greengrass-ML*** 폴더를 클릭합니다.
 
 ![lab1_image2.png](images/lab1_image2.png)
 
-***greengrass-ml_mxnet_cifar10_with_gluon_local.ipynb***을 클릭하여 Jupyter notebook을 엽니다.
+***greengrass-ml-301*** 폴더를 클릭합니다.
+![picture2.png](images/picture1.png)
 
-![lab1_image3.png](images/lab1_image3.png)
 
-Jupyter notebook의 code를 실행하기 전에 Kernel을 'conda_amazonei_mxnet_p36'으로 변경합니다.
-![lab1_image4.png](images/lab1_image4.png)
+***ml-inference-local.ipynb***을 클릭하여 Jupyter notebook을 엽니다.
+
+![picture3.png](images/picture3.png)
+
 
 그리고, Model Training을 하기 위하여, notebook의 있는 내용대로 따라서 진행합니다.
+
+![picture4.png](images/picture4.png)
+
 
 #### Working with Jupyter notebooks
 

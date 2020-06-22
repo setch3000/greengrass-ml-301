@@ -32,14 +32,14 @@ AWS CloudFormation 콘솔의 Quick create stack 페이지로 리디렉션 된 �
 
 CloudFormation 콘솔의 스택에 대한 ***Output*** 섹션에서 생성 된 리소스에 대한 정보르 찾을 수 있습니다. 언제든지 ***Output*** 섹션으로 돌아와서 값을 확인할 수 있습니다.
 
-![lab0_image2.png](images/lab0_image2.png)
+![picture2.png](images/picture2.png)
 
 #### Cloud9 IDE에 접속
 
-생성하신 ***GGMLWorkshop***스택에서 CloudFormation 콘솔의 스택에 대한 ***Output*** 섹션을 확인합니다.
+생성하신 CloudFormation 스택에서 ***Output*** 섹션을 확인합니다.
 Cloud9IDE 항목의 링크에서 오른쪽 마우스를 클릭하여 ***Open link in new tab***선택합니다.
 
-![lab0_image5.png](images/lab0_image5.png)
+![picture3.png](images/picture3.png)
 
 하기 화면과 같은 Cloud9 instance로 이동됩니다.
 아래 명령으로 남은 저장 공간을 확인할 수 있습니다.
