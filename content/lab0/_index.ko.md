@@ -48,20 +48,20 @@ Cloud9IDE 항목의 링크에서 오른쪽 마우스를 클릭하여 ***Open lin
 df -h
 ```
 
-![change_volume5.png](images/change_volume5.png)
+![picture-df.png](images/picture-df.png)
 
 
 #### home folder가 보여지도록 설정
 
 Workshop에서 사용되는 많은 파일이 Cloud9 IDE에 복사되어 있습니다. 기본적으로 홈 폴더의 내용은 표시되지 않습니다. 따라서 이것을 변경해야합니다.
 
-![lab0_image7.png](images/lab0_image7.png)
+![picture-home.png](images/picture-home.png)
 
 #### Open a Terminal
 
 Cloud9 IDE에서 terminal (shell)을 열기 위해서 Tab bar에서 ***+***를 클릭하고 ***New Terminal***을 선택합니다.
 
-![lab0_image8.png](images/lab0_image8.png)
+![picture-new.png](images/picture-new.png)
 
 
 #### EC2에 SSH로 연결하기 위한 keypair 파일 업로드
