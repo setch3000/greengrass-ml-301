@@ -24,12 +24,11 @@ CloudFormation 스택은 최소한 다음 리소스를 만듭니다.
 
 AWS CloudFormation 콘솔의 Quick create stack 페이지로 리디렉션 된 후 다음 단계를 수행하여 스택을 시작하십시오.
 
-* EC2 Instance Type for Cloud9: (Optional) Cloud9 instance type을 선택합니다. 미리 설정된 ***m4.large***을 사용하면 workshop을 실행하는 데에 충분합니다.
-* EC2 Instance Type for Sagemaker: (Optional) SageMaker를 위한 instance type을 선택합니다. 미리 설정된 ***ml.t2.medium***을 사용하면 workshop을 실행하는 데에 충분합니다.
+* EC2 Instance에 SSH로 접근하기 위한 kaypair를 지정합니다.
 * Capabilities 에서 ***I acknowledge that AWS CloudFormation might create IAM resources***을을 체크합니다.
 * Create stack 버튼을 누르고, stack 생성이 완료될 때까지 기다립니다. 10분 정도 소요됩니다.
 
-![lab0_image1.png](images/lab0_image1.png)
+![picture1.png](images/picture1.png)
 
 CloudFormation 콘솔의 스택에 대한 ***Output*** 섹션에서 생성 된 리소스에 대한 정보르 찾을 수 있습니다. 언제든지 ***Output*** 섹션으로 돌아와서 값을 확인할 수 있습니다.
 
@@ -93,5 +92,11 @@ Cloud9 IDE에서 terminal (shell)을 열기 위해서 Tab bar에서 ***+***를 �
 
 ![lab0_image8.png](images/lab0_image8.png)
 
+
+#### EC2에 SSH로 연결하기 위한 keypair 파일 업로드
+
+본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다. 사물(thing)의 역할을 하는 EC2에 접속하기 위하여 keypair 파일을 Cloud9에 업로드합니다.
+
+먼저 
 
 수고하셨습니다. 실습 1을 완료하셨습니다.
