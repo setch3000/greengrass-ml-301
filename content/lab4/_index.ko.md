@@ -147,6 +147,10 @@ Lambda에서 매 초마다 발생되는 데이터와 이전에 학습된 기계 
 
 * greengrass/ml/inference/#
 
+![image_classify1.png](./images/image_clasinfsify1.png)
+
+다음과 같이 실린더(Cylinder)에 비정상(abnormal)한 상태에 대한 예측값을 볼 수 있습니다.
+
 ![inference.png](./images/inference.png)
 
 
