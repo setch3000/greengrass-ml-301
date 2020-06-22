@@ -20,7 +20,7 @@ Greengrass의 요구 사항은 아니지만 Greengrass에서 리소스를 쉽게
 #### Greengrass Group에 ML-Inference Lambda 할당
 
 Greengrass에서 Lambda 함수를 사용하려면 AWS Lambda에서 생성된 함수를 Greengrass Group에 할당해야 합니다.\
-Greengrass의 Lambda 기능은 디렉토리에서 이미지를 정기적으로 스캔해야 하므로 long running function으로 구성됩니다.
+Greengrass의 Lambda 기능은 데이터를 정기적으로 스캔해야 하므로 long running function으로 구성됩니다.
 
 [Greengrass console](https://console.aws.amazon.com/greengrass/)로 이동한 후, Groups 메뉴를 선택합니다.
 
@@ -82,8 +82,6 @@ Memory limit: ***1024 MB*** 로 설정하고
 
 #### Greengrass Group에 Resources 할당
 
-Lambda 함수에서 사용하려면 SageMaker를 사용하여 생성한 이미지 분류 모델을 Greengrass Group에 Machine Learning Resource로 할당해야합니다. 또한 이미지를 검색(scan)할 디렉토리는 로컬 자원으로 지정되어야 합니다.
-
 [Greengrass console](https://console.aws.amazon.com/greengrass/)로 이동한 후, Groups 메뉴를 선택합니다.
 
 그리고, 앞서 생성한 ***greengrass-ml***을 클릭합니다.
@@ -108,8 +106,7 @@ Resources를 클릭하고 Local탭에서 ***Add a local resource***를 클릭합
 
 #### 구독(Subscription) 생성
 
-구독(subscription)은 소스(source), 대상(target) 및 주제 필터(topic filter)로 구성된 라우팅 규칙입니다. 구독(subscription)은 어떤 소스(source)가 어떤 주제(topic)와 통신할 수 있는지 정의합니다.
-이미지 분류를 수행하는 Lambda 함수는 이미지를 찾거나 분류했을 때 메시지를 생성합니다. 이러한 메시지는 AWS 클라우드로 전송되어야 합니다.
+구독(subscription)은 소스(source), 대상(target) 및 주제 필터(topic filter)로 구성된 라우팅 규칙입니다. 구독(subscription)은 어떤 소스(source)가 어떤 주제(topic)와 통신할 수 있는지 정의합니다. 분류를 수행하는 Lambda 함수는 데이터를 찾거나 분류했을 때 메시지를 생성합니다. 이러한 메시지는 AWS 클라우드로 전송되어야 합니다.
 
 [Greengrass console](https://console.aws.amazon.com/greengrass/)로 이동한 후, Groups 메뉴를 선택합니다.
 

@@ -6,7 +6,7 @@ pre: "<b>2. </b>"
 
 ### Train a Model with Amazon SageMaker
 
-Amazon SageMaker에서 Jupyter 노트북을 사용하여 예측 모델을 학습합니다. 훈련된 모델은 나중에 AWS Greengrass에서 사용되어 엣지에서 로컬 예측을 수행합니다.\
+Amazon SageMaker에서 Jupyter 노트북을 사용하여 예측 모델을 학습합니다. Amazon SageMaker에서 Jupyter 노트북을 사용하여 분류 모델을 학습합니다. 훈련된 모델은 나중에 AWS Greengrass에서 사용되어 엣지에서 분류 작업을 수행합니다.\
 장비(Equipment)로 부터 "rVibration_Temp", "rVibration_Z_RMS_Velocity", "rVibration_X_RMS_Velocity", "wRMSCurrent", "wCurrentLoad", "wEncoderVelocity" 데이터를 수집하여, 언제 실린더(Cylinder)에 비정상(abnormal)한 상태가 발생될 것이라는 것을 예측하는 모델을 훈련합니다.\
 생성된 SageMaker 인스턴스의 이름은 CloudFormation 스택의 출력 섹션에서 찾을 수 있습니다.
 

@@ -30,11 +30,11 @@ Amazon SageMaker는 개발자와 데이터 과학자가 모든 규모의 기계 
 
 이 workshop을 통하여
 
-* Amazon SageMaker로 이미지를 분류하기 위해 머신 러닝 모델 트레이닝
+* Amazon SageMaker로 머신 러닝 모델 트레이닝
 * Greengrass 그룹 프로비저닝
 * Amazon SageMaker로 훈련 된 모델을 AWS IoT Greengrass에 다운로드
 * AWS IoT Greengrass에서 사용할 AWS Lambda 함수 생성
-* Lambda 함수를 사용하여 Greengrass에서 이미지 분류를 수행하십시오. Lambda 함수는 Greengrass에 배포 된 모델을 로드합니다.
+* Lambda 함수를 사용하여 Greengrass에서 추론을 수행합니다.. Lambda 함수는 Greengrass에 배포 된 모델을 로드합니다.
 
 ### Architecture
 
