@@ -15,68 +15,6 @@ Lambda 함수에는 나중에 연습에서 두 가지 리소스가 할당됩니�
 Greengrass에서 실행해야하는 Lambda 함수에는 버전이 있어야합니다. 버전 외에도 함수 별칭(alias)을 작성합니다.\
 Greengrass의 요구 사항은 아니지만 Greengrass에서 리소스를 쉽게 할당하거나 구독을 만들 수 있습니다. 리소스/구독이 버전에 할당되면 새 버전의 Lambda를 배포할 때 업데이트해야 하는데, 별칭(alias)을 사용하면 이러한 번거로움을 피할 수 있습니다. 새 버전을 만든 경우 새 버전에 별칭(alias)만 지정하면 됩니다.
 
-<!-- 여러분이 Lab 1에서 CloudFormation을 활용하여 생성한 EC2 인스턴스(Cloud9 IDE가 실행되는)에 함수를 작성하는 데 필요한 Lambda 함수 코드가 이미 준비되어 있습니다.
-
-먼저 Cloud9 IDE를 보시면, 이름이 GGMLInference 인 Lambda 함수가 이미 생성되어 있습니다. 그러나 기능을 수정해야 합니다.
-
-Cloud9 IDE에서:
-
-AWS Resources 창이 표시되지 않으면 AWS Resources 버튼을 선택하십시오.
-
-![lab4_1](./images/lab4_1.png)
-
-AWS Resources 창의 Lambda 섹션을 확장하십시오.
-Local function 아래에 ***GGMLInference*** 함수가 있습니다.
-
-![lab4_2](./images/lab4_2.png)
-
-이제 기존 코드를 학습 한 모델을 사용하는 함수 코드로 바꿔야합니다. 코드는 이미 준비되어 있습니다.\
-FAVORITES 아래에서 ***~***를 확장하고 greengrass-ml 폴더를 찾습니다.\
-***lambda_function.py***를 찾아서 오른쪽 마우스를 클릭 후 ***Open***을 클릭하여 파일을 엽니다.
-
-![lab4_3](./images/lab4_3.png)
-
-방금 연 창에서 다른 ***lambda_function.py*** 창으로 코드를 복사하십시오.\
-다른 창에 코드를 복사한 후, File -> Save를 클릭하여 함수를 저장합니다.
-![lab4_4](./images/lab4_4.png)
-
-코드가 수정되면 Lambda 함수를 배포할 수 있습니다.
-오른쪽 창의 GGMLInference 에서 우측 마우스를 클릭한 후 ***Deploy***를 클릭합니다.
-
-![lab4_5](./images/lab4_5.png)
-
-Lambda 함수는 ***cloud9-GGMLInference-GGMLInference-<unique_string>***과 비슷한 이름으로 AWS Lambda 서비스에서 생성됩니다. 함수 이름 끝에있는 문자열은 고유하며 자동으로 생성됩니다.
-
-Lambda 함수가 AWS Greengrass와 함께 작동하려면 버전과 선택적으로 별칭을 생성해야합니다.
-오른쪽 창에서 ***GGMLInference***에서 오른쪽 마우스를 클릭하고 ***Deploy***를 클릭합니다.
-
-Lambda 함수는 ***cloud9-GGMLInference-GGMLInference-<unique_string>***과 비슷한 이름으로 AWS Lambda Service에서 생성됩니다. 함수 이름 끝에있는 문자열은 고유하며 자동으로 생성됩니다.
-
-
-Lambda 함수가 AWS Greengrass와 함께 작동하려면 버전과 선택적으로 별칭을 생성해야합니다.
-버전과 별칭(alias)을 만들기 위해서 [AWS Lambda console](https://console.aws.amazon.com/lambda/)로 이동합니다.
-앞서 생성하 Lambda function을 찾아서 클릭합니다.
-
-![lab4_6](./images/lab4_6.png)
-
-***Actions***에서 ***Publish new version***을 선택합니다.
-
-![lab4_7](./images/lab4_7.png)
-
-Version description은 그대로 비워 놓으셔도 됩니다. Publish를 클릭합니다.
-
-![lab4_8](./images/lab4_8.png)
-
-다시 ***Actions***에서 ***Create alias***을 선택합니다.
-
-![lab4_9](./images/lab4_9.png)
-
-Name: dev, Version: 1 을 립력하고 ***Create***를 클릭합니다.
-
-![lab4_10](./images/lab4_10.png)
-
- -->
-
 #### Greengrass Group에 ML-Inference Lambda 할당
 
 Greengrass에서 Lambda 함수를 사용하려면 AWS Lambda에서 생성된 함수를 Greengrass Group에 할당해야 합니다.\
@@ -99,7 +37,7 @@ Create function 화면에서 Function name에는 ***GGMLInference***을 입력�
 Function code 화면에서 ***upload a file from s3***를 클릭합니다.
 ![lambda3.png](./images/lambda3.png)
 
-Upload a file from Amazon S3 팝업이 보여지면, Amazon S3 link URL에 ***https://sehyul-iot-greengrass.s3.amazonaws.com/do-not-delete-lambda/lambda_function.zip***을 입력하고 ***Save***를 클릭합니다.
+Upload a file from Amazon S3 팝업이 보여지면, Amazon S3 link URL에 ***https://sehyul-iot-greengrass.s3.amazonaws.com/lambda-xgboost/lambda_function.zip***을 입력하고 ***Save***를 클릭합니다.
 
 ![lambda5.png](./images/lambda5.png)
 

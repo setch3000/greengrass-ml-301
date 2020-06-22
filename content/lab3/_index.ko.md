@@ -60,7 +60,7 @@ ssh -i "ee-default-keypair.pem" ubuntu@ec2-18-206-222-84.compute-1.amazonaws.com
 
 ![picture3](./images/picture3.png)
 
-#### Updating greengrass Core software
+#### 사물(thing)의 역할을 하는 EC2에 tar.gz-file 압축 해제
 
 ***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 하기 명령을 통해서 tar.gz-file 을 압축 해제 합니다.
 
@@ -125,6 +125,8 @@ cd /greengrass/ggc/var/log/system/
 tail -f *.log
 ```
 
+***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 로그를 보실 수 있습니다. 잠시 후 ***Ctrl +C***를 입력하여 로그 보기를 중단합니다.
+
 ![picture7](./images/picture7.png)
 
 
@@ -134,7 +136,7 @@ tail -f *.log
 sudo cat /greengrass/ggc/var/log/crash.log
 ``` -->
 
-***사물(thing)의 역할을 하는 EC2에 연결된 terminal***에서 잠시 후 ***Ctrl +C***를 입력하여 로그 보기를 중단합니다.
+
 
 #### Enable Logging for Greengrass
 
