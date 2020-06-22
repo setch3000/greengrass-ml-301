@@ -97,6 +97,17 @@ Cloud9 IDE에서 terminal (shell)을 열기 위해서 Tab bar에서 ***+***를 �
 
 본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다. 사물(thing)의 역할을 하는 EC2에 접속하기 위하여 keypair 파일을 Cloud9에 업로드합니다.
 
-먼저 
+먼저 FILE SYSTEM에서 /home/ec2-user/environment 폴더를 클릭한 상태에서
+
+![picture5.png](images/picture5.png)
+
+상단의 메뉴에서 File > Upload Local Files... 를 선택하여 EC2에 접속하기 위하여 keypair 파일을 Cloud9에 업로드합니다. 여기에 업로드하는 파일은 조금 전 CloudFormation에 명시했던 keypair 파일과 동일한 것이어야 합니다.
+
+![picture6.png](images/picture6.png)
+
+keypair 파일이 업로드되면 아래와 같이 보여집니다.
+
+![picture7.png](images/picture7.png)
+
 
 수고하셨습니다. 실습 1을 완료하셨습니다.
