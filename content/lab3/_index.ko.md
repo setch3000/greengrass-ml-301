@@ -4,40 +4,41 @@ weight: 50
 pre: "<b>4. </b>"
 ---
 
-#### hardlink/softlink protection 설정
 
-다음 명령과 같이 ggc_user와 ggc_group을 생성합니다.
+#### upload the tar.gz-file
 
-``` shell
-sudo adduser --system ggc_user
-sudo groupadd --system ggc_group
-```
+실습3에서 다운로드한 resources as a tar.gz 파일을 cloud9에 업로드합니다.
+tar.gz 파일의 이름은 -setup.tar.gz와 유사합니다.
+tar.gz 파일에는 Greengrass Core를 구성하는 데 사용될 키, 인증서 및 구성 파일 (config.json)이 포함되어 있습니다.
 
-시스템 설정 파일을 찾아서 편집합니다.
-먼저 하기 폴더로 이동합니다.
+![c9_1](./images/c9_1.png)
 
-``` shell
-cd /etc/sysctl.d
-ls
-```
-
-다음과 같은 명령으로 00-defaults.conf 파일을 수정합니다.
+<!-- Cloud9 터미널에서 아래와 같은 명령으로 압축을 해제합니다.
 
 ``` shell
-sudo nano 00-defaults.conf
-```
+sudo tar zxvf <unique-string>-setup.tar.gz -C /greengrass/
+``` -->
 
-00-defaults.conf 파일의 제일 마지막에 아래 두 줄을 추가합니다.
+<!-- ![c9_2](./images/c9_2.png) -->
 
-```
-fs.protected_hardlinks = 1
-fs.protected_symlinks = 1
-```
 
-Cloud9 instance를 리부팅합니다.
+#### 사물(thing)의 역할을 하는 EC2에 접속
+
+본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다.
+
+사물(thing)의 역할을 하는 EC2에 접속하기 위하여 Cloud9의 터미널에서 하기 명령을 실행합니다.
+
 ``` shell
-sudo reboot
+ssh -i <키페어 파일 이름> ubuntu@<사물(thing)의 역할을 하는 EC2 서버 주소>
 ```
+
+아래는 예제입니다.
+
+``` shell
+ssh -i "ee-default-keypair.pem" ubuntu@ec2-18-206-222-84.compute-1.amazonaws.com
+```
+
+
 
 
 #### Updating greengrass Core software
@@ -76,20 +77,7 @@ Cloud9 terminal에서 다음 명령으로 JDK 버전이 1.8.0 이상인지 확�
 java -version
 ```
 
-#### Copy and unpack the tar.gz-file
 
-다운로드 한 tar.gz 파일을 EC2 인스턴스에 복사 (Lab1의 마지막 부분에서 언급 한대로 S3 / Cloud9 IDE 사용)하십시오. tar.gz 파일의 이름은 -setup.tar.gz와 유사합니다.
-tar.gz 파일에는 Greengrass Core를 구성하는 데 사용될 키, 인증서 및 구성 파일 (config.json)이 포함되어 있습니다.
-
-![c9_1](./images/c9_1.png)
-
-Cloud9 터미널에서 아래와 같은 명령으로 압축을 해제합니다.
-
-``` shell
-sudo tar zxvf <unique-string>-setup.tar.gz -C /greengrass/
-```
-
-![c9_2](./images/c9_2.png)
 
 #### ATS 루트 CA 인증서를 다운로드
 
