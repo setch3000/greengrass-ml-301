@@ -20,6 +20,7 @@ CloudFormation 스택은 최소한 다음 리소스를 만듭니다.
 * Greengrass를 실행하고 Lambda 함수를 생성하는 Cloud9 인스턴스
 * Jupyter 노트북에서 모델을 정의하는 SageMaker 노트북 인스턴스. 모델 자체는 AWS SageMaker 서비스를 사용하여 학습됩니다.
 * Cloud9 인스턴스의 인스턴스 프로파일
+* 사물(thing)의 역할을 하는 EC2 instance - 본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다.
 * AWS 리소스에 액세스하는 데 필요한 IAM 역할
 
 AWS CloudFormation 콘솔의 Quick create stack 페이지로 리디렉션 된 후 다음 단계를 수행하여 스택을 시작하십시오.
