@@ -34,26 +34,7 @@ CloudFormation 콘솔의 스택에 대한 ***Output*** 섹션에서 생성 된 �
 
 ![lab0_image2.png](images/lab0_image2.png)
 
-#### Modify Volume 및 Cloud9 IDE에 접속
-
-실습 환경에서 디스크 저장 공간을 확보하기 위하여, [EC2의 EBS console](https://console.aws.amazon.com/ec2/v2/home?#Volumes)로 이동합니다.
-
-***Modify Volume***을 선택합니다.
-
-![change_volume1.png](images/change_volume1.png)
-
-Size에 ***20***을 입력하고, ***Modify***를 클릭합니다.
-
-![change_volume2.png](images/change_volume2.png)
-
-Modify Volume 확인창에서 ***Yes***를 클릭합니다.
-
-![change_volume3.png](images/change_volume3.png)
-
-Modify Volume 이 성공하면 아래와 같은 창이 보여집니다.
-
-![change_volume4.png](images/change_volume4.png)
-
+#### Cloud9 IDE에 접속
 
 생성하신 ***GGMLWorkshop***스택에서 CloudFormation 콘솔의 스택에 대한 ***Output*** 섹션을 확인합니다.
 Cloud9IDE 항목의 링크에서 오른쪽 마우스를 클릭하여 ***Open link in new tab***선택합니다.
@@ -61,17 +42,7 @@ Cloud9IDE 항목의 링크에서 오른쪽 마우스를 클릭하여 ***Open lin
 ![lab0_image5.png](images/lab0_image5.png)
 
 하기 화면과 같은 Cloud9 instance로 이동됩니다.
-
-![lab0_image6.png](images/lab0_image6.png)
-
-Cloud9IDE 에서 아래 두 줄의 명령을 실행하여, 볼륨의 사이즈를 조정해 줍니다.
-
-``` shell
-sudo growpart /dev/xvda 1
-sudo resize2fs /dev/xvda1
-```
-
-그리고, 아래 명령으로 남은 저장 공간을 확인할 수 있습니다.
+아래 명령으로 남은 저장 공간을 확인할 수 있습니다.
 
 ``` shell
 df -h
