@@ -109,5 +109,16 @@ keypair 파일이 업로드되면 아래와 같이 보여집니다.
 
 ![picture7.png](images/picture7.png)
 
+keypair 파일이 업로드되면 아래와 같은 명령으로 permission을 변경해 줍니다.
+
+``` shell
+chmod 400 <키페어 파일 이름>
+```
+
+아래는 예제입니다.
+
+``` shell
+chmod 400 ee-default-keypair.pem 
+```
 
 수고하셨습니다. 실습 1을 완료하셨습니다.

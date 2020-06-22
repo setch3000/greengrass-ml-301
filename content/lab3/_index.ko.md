@@ -11,7 +11,7 @@ pre: "<b>4. </b>"
 tar.gz 파일의 이름은 -setup.tar.gz와 유사합니다.
 tar.gz 파일에는 Greengrass Core를 구성하는 데 사용될 키, 인증서 및 구성 파일 (config.json)이 포함되어 있습니다.
 
-![c9_1](./images/c9_1.png)
+![picture1](./images/picture1.png)
 
 <!-- Cloud9 터미널에서 아래와 같은 명령으로 압축을 해제합니다.
 
@@ -21,10 +21,30 @@ sudo tar zxvf <unique-string>-setup.tar.gz -C /greengrass/
 
 <!-- ![c9_2](./images/c9_2.png) -->
 
+#### 사물(thing)의 역할을 하는 EC2에 tar.gz-file 복사
+
+본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다.
+사물(thing)의 역할을 하는 EC2에 tar.gz-file을 복사합니다.
+
+아래와 같은 형식의 명령을 사용합니다.
+
+`` shell
+scp -i <키페어 파일 이름> <tar.gz 파일 이름> ubuntu@ec2-18-215-162-143.compute-1.amazonaws.com:~
+```
+
+아래는 예제입니다.
+
+`` shell
+scp -i "ee-default-keypair.pem" 61de6b70eb-setup.tar.gzubuntu@ec2-18-206-222-84.compute-1.amazonaws.com:~
+```
 
 #### 사물(thing)의 역할을 하는 EC2에 접속
 
 본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다.
+
+먼저, Cloud9에서 터미널을 추가로 생성합니다 (New Terminal).
+
+![picture2](./images/picture2.png)
 
 사물(thing)의 역할을 하는 EC2에 접속하기 위하여 Cloud9의 터미널에서 하기 명령을 실행합니다.
 
@@ -38,43 +58,12 @@ ssh -i <키페어 파일 이름> ubuntu@<사물(thing)의 역할을 하는 EC2 �
 ssh -i "ee-default-keypair.pem" ubuntu@ec2-18-206-222-84.compute-1.amazonaws.com
 ```
 
-
-
-
 #### Updating greengrass Core software
 
 Cloud9(EC2)에 이미 이전 버전의 greengrass core software가 설치되어 있습니다만, 이것을 최신 버전으로 업그레이드애 해야 됩니다.
 
-먼저, 이전 버전의 greengrass core software를 삭제합니다.
-
 ``` shell
-sudo rm -rf /greengrass
-```
-
-그리고, 최신 버전의 greengrass core software를 다운로드하고, 루트(/)에 압축 해제 합니다.
-
-``` shell
-wget https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/1.10.0/greengrass-linux-x86-64-1.10.0.tar.gz
-sudo tar -xzvf greengrass-linux-x86-64-1.10.0.tar.gz -C /
-```
-
-#### Java 8 runtime (JDK 8) 설치
-
-Cloud9(EC2)에 이미 이전 버전의 JDK가 이미 설치되어 있습니다만, 이것을 JDK 8 이상으로 업그레이드해야 합니다.
-Cloud9 terminal에서 아래와 같은 명령으로 이전 버전의 JDK를 삭제하고, JDK 8을 설치합니다.
-
-``` shell
-sudo yum remove java-1.7.0-openjdk
-```
-
-``` shell
-sudo yum install java-1.8.0
-```
-
-Cloud9 terminal에서 다음 명령으로 JDK 버전이 1.8.0 이상인지 확인합니다.
-
-``` shell
-java -version
+sudo tar zxvf <unique-string>-setup.tar.gz -C /greengrass/
 ```
 
 
