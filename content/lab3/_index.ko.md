@@ -38,6 +38,10 @@ scp -i <키페어 파일 이름> <tar.gz 파일 이름> ubuntu@ec2-18-215-162-14
 scp -i "ee-default-keypair.pem" 61de6b70eb-setup.tar.gzubuntu@ec2-18-206-222-84.compute-1.amazonaws.com:~
 ```
 
+사물(thing)의 역할을 하는 EC2 서버의 주소는 실습1에서 만드신 CloudFormation 스택의 output탭에서 확인하실 수 있습니다.
+![picture-output](./images/picture-output.png)
+
+
 #### 사물(thing)의 역할을 하는 EC2에 접속
 
 본 워크샾에서는 EC2를 IoT의 사물(thing)으로써 사용합니다.
@@ -57,6 +61,10 @@ ssh -i <키페어 파일 이름> ubuntu@<사물(thing)의 역할을 하는 EC2 �
 ``` shell
 ssh -i "ee-default-keypair.pem" ubuntu@ec2-18-206-222-84.compute-1.amazonaws.com
 ```
+
+사물(thing)의 역할을 하는 EC2 서버의 주소는 실습1에서 만드신 CloudFormation 스택의 output탭에서 확인하실 수 있습니다.
+![picture-output](./images/picture-output.png)
+
 
 ![picture3](./images/picture3.png)
 

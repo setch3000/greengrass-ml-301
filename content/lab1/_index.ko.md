@@ -24,7 +24,7 @@ SageMaker instance로 이동됩니다.
 ![lab1_image2.png](images/lab1_image2.png)
 
 ***greengrass-ml-301*** 폴더를 클릭합니다.
-![picture2.png](images/picture1.png)
+![picture2.png](images/picture2.png)
 
 
 ***ml-inference-local.ipynb***을 클릭하여 Jupyter notebook을 엽니다.
