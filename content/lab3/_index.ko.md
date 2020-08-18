@@ -35,7 +35,7 @@ scp -i <키페어 파일 이름> <tar.gz 파일 이름> ubuntu@ec2-18-215-162-14
 아래는 예제입니다.
 
 ``` shell
-scp -i "ee-default-keypair.pem" 61de6b70eb-setup.tar.gzubuntu@ec2-18-206-222-84.compute-1.amazonaws.com:~
+scp -i "ee-default-keypair.pem" 61de6b70eb-setup.tar.gz ubuntu@ec2-18-206-222-84.compute-1.amazonaws.com:~
 ```
 
 사물(thing)의 역할을 하는 EC2 서버의 주소는 실습1에서 만드신 CloudFormation 스택의 output탭에서 확인하실 수 있습니다.

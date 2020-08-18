@@ -38,7 +38,7 @@ Greengrass Core를 생성합니다. 앞서 지정한 이름을 기반으로 ***g
 
 ![gg7](./images/gg7.png)
 
-#### Create a Greengrass Service Role
+<!-- #### Create a Greengrass Service Role
 
 [IAM console](https://console.aws.amazon.com/iam/)로 이동합니다.
 좌측 메뉴에서 ***Roles***를 클릭합니다. 그리고, ***Create role*** 버튼을 클릭합니다.
@@ -88,7 +88,7 @@ aws greengrass associate-service-role-to-account --role-arn arn:aws:iam::<YOUR_A
 aws greengrass associate-service-role-to-account --role-arn arn:aws:iam::576184218696:role/GreengrassRole
 ```
 
-![gg_iam8](./images/gg_iam8.png)
+![gg_iam8](./images/gg_iam8.png) -->
 
 
 ---
