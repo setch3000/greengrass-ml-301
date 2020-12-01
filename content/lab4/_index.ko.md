@@ -39,7 +39,7 @@ Create function 화면에서 Function name에는 ```GGMLInference```을 입력�
 Function code 화면에서 ***upload a file from s3***를 클릭합니다.
 ![lambda3.png](./images/lambda3.png)
 
-Upload a file from Amazon S3 팝업이 보여지면, Amazon S3 link URL에 ```https://sehyul.s3.ap-northeast-2.amazonaws.com/greengrass/lambda_function.zip```을 입력하고 ***Save***를 클릭합니다.
+Upload a file from Amazon S3 팝업이 보여지면, Amazon S3 link URL에 ```https://bucket-576184218696-us-east-1.s3.amazonaws.com/lambda_function.zip```을 입력하고 ***Save***를 클릭합니다.
 
 ![lambda5.png](./images/lambda5.png)
 
