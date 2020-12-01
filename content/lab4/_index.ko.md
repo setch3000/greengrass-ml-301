@@ -98,7 +98,7 @@ Resources를 클릭하고 Local탭에서 ***Add a local resource***를 클릭합
   * Source path: ```/greengrass-ml```
   * Destination path: ```/models/anomaly-detection```
 * ***Automatically add OS group permissions of the Linux group that owns the resource***을 선택
-* Lambda function affiliations 에서 ```GGMLInference```을 선택하고, ***Read and write access***을 선택
+* Lambda function affiliations 에서 ***GGMLInference***을 선택하고, ***Read and write access***을 선택
 
 ***Save***를 클릭하여 변경 사항을 저장합니다.
 ![resource1.png](./images/resource1.png)
