@@ -121,7 +121,7 @@ Target: ***Services*** -> ***IoT Cloud***
 
 ![lambda15.png](./images/lambda15.png)
 
-topic filter: ***greengrass/ml/inference/#***와 같이 입력합니다(선택 사항)\
+topic filter: ```greengrass/ml/inference/#```와 같이 입력합니다(선택 사항)\
 ***Next***를 클릭합니다.
 
 ![lambda16.png](./images/lambda16.png)
