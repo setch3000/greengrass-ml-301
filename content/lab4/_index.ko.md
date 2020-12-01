@@ -32,14 +32,14 @@ Lambdas를 선택하고, ***Create New Lambda***를 클릭합니다.
 ![lambda1.png](./images/lambda1.png)
 
 브라우저의 새 탭에서 Lambda Service console로 자동으로 이동됩니다.
-Create function 화면에서 Function name에는 ***GGMLInference***을 입력하고 runtime은 ***Python 3.7***을 선택하고, 오른쪽 아래 ***Create function***을 클릭합니다.
+Create function 화면에서 Function name에는 ```GGMLInference```을 입력하고 runtime은 ***Python 3.7***을 선택하고, 오른쪽 아래 ***Create function***을 클릭합니다.
 
 ![lambda2.png](./images/lambda2.png)
 
 Function code 화면에서 ***upload a file from s3***를 클릭합니다.
 ![lambda3.png](./images/lambda3.png)
 
-Upload a file from Amazon S3 팝업이 보여지면, Amazon S3 link URL에 ***https://sehyul-iot-greengrass.s3.amazonaws.com/lambda-xgboost/lambda_function.zip***을 입력하고 ***Save***를 클릭합니다.
+Upload a file from Amazon S3 팝업이 보여지면, Amazon S3 link URL에 ```https://sehyul.s3.ap-northeast-2.amazonaws.com/greengrass/lambda_function.zip```을 입력하고 ***Save***를 클릭합니다.
 
 ![lambda5.png](./images/lambda5.png)
 
@@ -93,12 +93,12 @@ Resources를 클릭하고 Local탭에서 ***Add a local resource***를 클릭합
 
 그리고, 아래와 같이 설정합니다.
 
-* Resource name: ***xgboost_model***
+* Resource name: ```xgboost_model```
 * Check Volume에서
-  * Source path: ***/greengrass-ml***
-  * Destination path: ***/models/anomaly-detection***
+  * Source path: ```/greengrass-ml```
+  * Destination path: ```/models/anomaly-detection```
 * ***Automatically add OS group permissions of the Linux group that owns the resource***을 선택
-* Lambda function affiliations 에서 ***GGMLInference***을 선택하고, ***Read and write access***을 선택
+* Lambda function affiliations 에서 ```GGMLInference```을 선택하고, ***Read and write access***을 선택
 
 ***Save***를 클릭하여 변경 사항을 저장합니다.
 ![resource1.png](./images/resource1.png)
